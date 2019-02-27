@@ -66,3 +66,6 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+FlowDirection.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+FlowDirection.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+Pods
