@@ -96,10 +96,6 @@ public class Coordiator<Flows: Flow, TabFlows: TabFlow>: NSObject, Direction {
     public func toRootViewController(_ animated: Bool) {
     }
     
-    public func animationPush(flow: Flow) {
-        
-    }
-    
 }
 
 extension Coordiator {

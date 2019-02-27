@@ -10,5 +10,9 @@ import Foundation
 
 protocol Builder {
     @discardableResult
+    /// method will called for create your module
+    ///
+    /// - Parameter flow: module type
+    /// - Returns: view controller
     func makeViewController<T: Flow>(with flow: T) -> UIViewController
 }

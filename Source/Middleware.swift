@@ -9,6 +9,11 @@
 import Foundation
 
 public protocol CoordinatorMiddleware {
+    /// Perform before transition
+    ///
+    /// - Parameters:
+    ///   - coordinator: direction obj
+    ///   - flow: type transition
     func process(coordinator: Direction, flow: Flow)
 }
 

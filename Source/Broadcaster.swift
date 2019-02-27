@@ -10,6 +10,8 @@ import RxSwift
 import RxCocoa
 
 public class Broadcaster: NSObject {
+    /// emits flow type before performing transition
     let willNavigate = PublishRelay<Flow>()
+    /// emits flow after transition
     let didNavigate = PublishRelay<Flow>()
 }
