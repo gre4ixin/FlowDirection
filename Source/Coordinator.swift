@@ -124,15 +124,19 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
     }
     
     public func showTab<T>(flow: T) where T : Flow {
-        middleWares.forEach { $0.process(coordinator: self, flow: flow) }
-        middleWares.forEach { $0.resolving(coordinator: self, flow: flow, resolved: { (access) in
-            switch access {
-            case .resolve:
-                if let index = flow.index { tabBarController.selectFlow(index) }
-            case .denied:
-                return
-            }
-        }) }
+        if !middleWares.isEmpty {
+            middleWares.forEach { $0.process(coordinator: self, flow: flow) }
+            middleWares.forEach { $0.resolving(coordinator: self, flow: flow, resolved: { (access) in
+                switch access {
+                case .resolve:
+                    if let index = flow.index { tabBarController.selectFlow(index) }
+                case .denied:
+                    return
+                }
+            }) }
+        } else {
+            if let index = flow.index { tabBarController.selectFlow(index) }
+        }
     }
     
     public func showTab(index: Int) {
@@ -149,8 +153,14 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
 
 extension Coordiator {
     private func injectingSelf(_ controller: UIViewController) {
-        if let _inj = controller as? Injecting {
-            _inj.coordinator = self
+        if let nav = controller as? UINavigationController {
+            if let _inj = nav.viewControllers.first as? Injecting {
+                _inj.coordinator = self
+            }
+        } else {
+            if let _inj = controller as? Injecting {
+                _inj.coordinator = self
+            }
         }
     }
 }
