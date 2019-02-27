@@ -10,15 +10,19 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-public class Coordiator<Flows: Flow, TabFlows: TabFlow>: NSObject, Direction {
+/// Implementation coordinator pattern and Direction protocol
+public class Coordiator<Flows: Flow, Tab: DirectionFlow>: NSObject, Direction {
 
+    /// generic for users flow
     public typealias FlowType = Flows
-    public typealias TabFlowType = TabFlows
+    public typealias TabFlow = Tab
     
+    /// current view controller or top view controller in current navigation controller
     public var topViewController: UIViewController? {
         return navigationControllers[tabBarController.selectedIndex].topViewController
     }
     
+    /// broadcaster emiter
     public var broadcaster: Broadcaster = Broadcaster()
     
     private let navigationController: UINavigationController
@@ -26,8 +30,8 @@ public class Coordiator<Flows: Flow, TabFlows: TabFlow>: NSObject, Direction {
     private let builder: Builder
     private(set) var middleWares: [CoordinatorMiddleware] = []
     private var currentFlow: FlowType?
-    private var currentTabFlow: TabFlowType?
     
+    /// array of navigation controllers
     private var navigationControllers: [UINavigationController] {
         return tabBarController.viewControllers as? [UINavigationController] ?? []
     }
@@ -87,7 +91,7 @@ public class Coordiator<Flows: Flow, TabFlows: TabFlow>: NSObject, Direction {
         return vc
     }
     
-    public func showTab<T>(flow: T) where T : TabFlow {
+    public func showTab<T>(flow: T) where T : DirectionFlow {
     }
     
     public func showTab(index: Int) {
@@ -97,8 +101,3 @@ public class Coordiator<Flows: Flow, TabFlows: TabFlow>: NSObject, Direction {
     }
     
 }
-
-extension Coordiator {
-    
-}
-

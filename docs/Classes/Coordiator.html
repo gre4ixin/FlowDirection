@@ -14,7 +14,7 @@
     <a title="Coordiator Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (39% documented)</p>
+        <p><a href="../index.html"> Docs</a> (43% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -31,10 +31,13 @@
             <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes.html#/c:@M@FlowDirection@objc(cs)Broadcaster">Broadcaster</a>
+                <a href="../Classes/Broadcaster.html">Broadcaster</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/Coordiator.html">Coordiator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TabBarDirection.html">TabBarDirection</a>
               </li>
             </ul>
           </li>
@@ -42,16 +45,19 @@
             <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Protocols/Builder.html">Builder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Protocols/CoordinatorMiddleware.html">CoordinatorMiddleware</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/Direction.html">Direction</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols.html#/s:13FlowDirection0A0P">Flow</a>
+                <a href="../Protocols/DirectionFlow.html">DirectionFlow</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols.html#/s:13FlowDirection03TabA0P">TabFlow</a>
+                <a href="../Protocols.html#/s:13FlowDirection0A0P">Flow</a>
               </li>
             </ul>
           </li>
@@ -63,11 +69,11 @@
             <h1>Coordiator</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Coordiator</span><span class="o">&lt;</span><span class="kt">Flows</span><span class="p">,</span> <span class="kt">TabFlows</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt"><a href="../Protocols/Direction.html">Direction</a></span> <span class="k">where</span> <span class="kt">Flows</span> <span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:13FlowDirection0A0P">Flow</a></span><span class="p">,</span> <span class="kt">TabFlows</span> <span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:13FlowDirection03TabA0P">TabFlow</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Coordiator</span><span class="o">&lt;</span><span class="kt">Flows</span><span class="p">,</span> <span class="kt">Tab</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt"><a href="../Protocols/Direction.html">Direction</a></span> <span class="k">where</span> <span class="kt">Flows</span> <span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:13FlowDirection0A0P">Flow</a></span><span class="p">,</span> <span class="kt">Tab</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/DirectionFlow.html">DirectionFlow</a></span></code></pre>
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>Implementation coordinator pattern and Direction protocol</p>
 
           </section>
           <section class="section task-group-section">
@@ -86,7 +92,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>generic for users flow</p>
 
                       </div>
                       <div class="declaration">
@@ -103,9 +109,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13FlowDirection10CoordiatorC03TabA4Typea"></a>
-                    <a name="//apple_ref/swift/Alias/TabFlowType" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13FlowDirection10CoordiatorC03TabA4Typea">TabFlowType</a>
+                    <a name="/s:13FlowDirection10CoordiatorC03TabA0a"></a>
+                    <a name="//apple_ref/swift/Alias/TabFlow" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13FlowDirection10CoordiatorC03TabA0a">TabFlow</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -120,7 +126,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">TabFlowType</span> <span class="o">=</span> <span class="kt">TabFlows</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">TabFlow</span> <span class="o">=</span> <span class="kt">Tab</span></code></pre>
 
                         </div>
                       </div>
@@ -140,7 +146,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>current view controller or top view controller in current navigation controller</p>
 
                       </div>
                       <div class="declaration">
@@ -167,14 +173,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>broadcaster emiter</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">broadcaster</span><span class="p">:</span> <span class="kt"><a href="../Classes.html#/c:@M@FlowDirection@objc(cs)Broadcaster">Broadcaster</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">broadcaster</span><span class="p">:</span> <span class="kt"><a href="../Classes/Broadcaster.html">Broadcaster</a></span></code></pre>
 
                         </div>
                       </div>
@@ -454,9 +460,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13FlowDirection10CoordiatorC7showTab4flowyqd___tAA0eA0Rd__lF"></a>
+                    <a name="/s:13FlowDirection10CoordiatorC7showTab4flowyqd___tAA0bA0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/showTab(flow:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13FlowDirection10CoordiatorC7showTab4flowyqd___tAA0eA0Rd__lF">showTab(flow:)</a>
+                    <a class="token" href="#/s:13FlowDirection10CoordiatorC7showTab4flowyqd___tAA0bA0Rd__lF">showTab(flow:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -471,7 +477,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">showTab</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">flow</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:13FlowDirection03TabA0P">TabFlow</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">showTab</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">flow</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/DirectionFlow.html">DirectionFlow</a></span></code></pre>
 
                         </div>
                       </div>

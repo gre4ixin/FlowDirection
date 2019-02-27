@@ -19,6 +19,6 @@ public protocol CoordinatorMiddleware {
 
 public extension CoordinatorMiddleware {
     
-    func process(coordinator: Direction, flow: Flow) {}
+    public func process(coordinator: Direction, flow: Flow) {}
     
 }

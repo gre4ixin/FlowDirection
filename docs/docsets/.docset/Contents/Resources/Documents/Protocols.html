@@ -14,7 +14,7 @@
     <a title="Protocols  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html"> Docs</a> (39% documented)</p>
+        <p><a href="index.html"> Docs</a> (43% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -31,10 +31,13 @@
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes.html#/c:@M@FlowDirection@objc(cs)Broadcaster">Broadcaster</a>
+                <a href="Classes/Broadcaster.html">Broadcaster</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/Coordiator.html">Coordiator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/TabBarDirection.html">TabBarDirection</a>
               </li>
             </ul>
           </li>
@@ -42,16 +45,19 @@
             <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Protocols/Builder.html">Builder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/CoordinatorMiddleware.html">CoordinatorMiddleware</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/Direction.html">Direction</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols.html#/s:13FlowDirection0A0P">Flow</a>
+                <a href="Protocols/DirectionFlow.html">DirectionFlow</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols.html#/s:13FlowDirection03TabA0P">TabFlow</a>
+                <a href="Protocols.html#/s:13FlowDirection0A0P">Flow</a>
               </li>
             </ul>
           </li>
@@ -70,6 +76,70 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:13FlowDirection7BuilderP"></a>
+                    <a name="//apple_ref/swift/Protocol/Builder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13FlowDirection7BuilderP">Builder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Protocols/Builder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Builder</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13FlowDirection0B0P"></a>
+                    <a name="//apple_ref/swift/Protocol/Direction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13FlowDirection0B0P">Direction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>the Protocol for the description of the coordinator class</p>
+
+                        <a href="Protocols/Direction.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Direction</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:13FlowDirection0A0P"></a>
                     <a name="//apple_ref/swift/Protocol/Flow" class="dashAnchor"></a>
                     <a class="token" href="#/s:13FlowDirection0A0P">Flow</a>
@@ -80,7 +150,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Flow protocol, you must create an enum type and description all your modules</p>
 
                       </div>
                       <div class="declaration">
@@ -97,9 +167,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13FlowDirection03TabA0P"></a>
-                    <a name="//apple_ref/swift/Protocol/TabFlow" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13FlowDirection03TabA0P">TabFlow</a>
+                    <a name="/s:13FlowDirection0bA0P"></a>
+                    <a name="//apple_ref/swift/Protocol/DirectionFlow" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13FlowDirection0bA0P">DirectionFlow</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -109,40 +179,13 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
+                        <a href="Protocols/DirectionFlow.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TabFlow</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13FlowDirection0B0P"></a>
-                    <a name="//apple_ref/swift/Protocol/Direction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13FlowDirection0B0P">Direction</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="Protocols/Direction.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Direction</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">DirectionFlow</span></code></pre>
 
                         </div>
                       </div>

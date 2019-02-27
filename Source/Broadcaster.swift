@@ -11,7 +11,7 @@ import RxCocoa
 
 public class Broadcaster: NSObject {
     /// emits flow type before performing transition
-    let willNavigate = PublishRelay<Flow>()
+    public let willNavigate = PublishRelay<Flow>()
     /// emits flow after transition
-    let didNavigate = PublishRelay<Flow>()
+    public let didNavigate = PublishRelay<Flow>()
 }

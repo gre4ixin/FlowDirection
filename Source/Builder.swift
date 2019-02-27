@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Builder {
+public protocol Builder {
     @discardableResult
     /// method will called for create your module
     ///

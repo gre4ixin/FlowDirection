@@ -10,8 +10,8 @@
 		46F0790422255B390028D9BF /* FlowDirection.h in Headers */ = {isa = PBXBuildFile; fileRef = 46F0790222255B390028D9BF /* FlowDirection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46F0790D222560E10028D9BF /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F0790C222560E10028D9BF /* Direction.swift */; };
 		46F55A992226683E0077F17D /* TabBarDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F55A982226683E0077F17D /* TabBarDirection.swift */; };
+		46F55A9B22266C270077F17D /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F55A9A22266C270077F17D /* Flow.swift */; };
 		65B2F6B72225DC35004B7D3A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B2F6B62225DC35004B7D3A /* Coordinator.swift */; };
-		65B2F6B92225DD4A004B7D3A /* Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B2F6B82225DD4A004B7D3A /* Tester.swift */; };
 		65B2F6BB2225E401004B7D3A /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B2F6BA2225E401004B7D3A /* Builder.swift */; };
 		65B2F6BF2225EBAD004B7D3A /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B2F6BE2225EBAD004B7D3A /* Middleware.swift */; };
 		65B2F6C12225F0E1004B7D3A /* Broadcaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B2F6C02225F0E1004B7D3A /* Broadcaster.swift */; };
@@ -24,9 +24,9 @@
 		46F0790322255B390028D9BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46F0790C222560E10028D9BF /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		46F55A982226683E0077F17D /* TabBarDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarDirection.swift; sourceTree = "<group>"; };
+		46F55A9A22266C270077F17D /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
 		4C9B6E07CAC05B00F2066764 /* Pods-FlowDirection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowDirection.release.xcconfig"; path = "Target Support Files/Pods-FlowDirection/Pods-FlowDirection.release.xcconfig"; sourceTree = "<group>"; };
 		65B2F6B62225DC35004B7D3A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		65B2F6B82225DD4A004B7D3A /* Tester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tester.swift; sourceTree = "<group>"; };
 		65B2F6BA2225E401004B7D3A /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
 		65B2F6BE2225EBAD004B7D3A /* Middleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middleware.swift; sourceTree = "<group>"; };
 		65B2F6C02225F0E1004B7D3A /* Broadcaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Broadcaster.swift; sourceTree = "<group>"; };
@@ -89,10 +89,10 @@
 				46F0790C222560E10028D9BF /* Direction.swift */,
 				65B2F6B62225DC35004B7D3A /* Coordinator.swift */,
 				65B2F6BA2225E401004B7D3A /* Builder.swift */,
-				65B2F6B82225DD4A004B7D3A /* Tester.swift */,
 				65B2F6BE2225EBAD004B7D3A /* Middleware.swift */,
 				65B2F6C02225F0E1004B7D3A /* Broadcaster.swift */,
 				46F55A982226683E0077F17D /* TabBarDirection.swift */,
+				46F55A9A22266C270077F17D /* Flow.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -215,7 +215,7 @@
 				65B2F6C12225F0E1004B7D3A /* Broadcaster.swift in Sources */,
 				46F55A992226683E0077F17D /* TabBarDirection.swift in Sources */,
 				65B2F6BF2225EBAD004B7D3A /* Middleware.swift in Sources */,
-				65B2F6B92225DD4A004B7D3A /* Tester.swift in Sources */,
+				46F55A9B22266C270077F17D /* Flow.swift in Sources */,
 				65B2F6BB2225E401004B7D3A /* Builder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

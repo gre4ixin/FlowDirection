@@ -8,9 +8,7 @@
 
 import RxSwift
 
-public protocol Flow {}
-public protocol TabFlow {}
-
+/// the Protocol for the description of the coordinator class
 public protocol Direction: class {
     
     /// Return top view controller (only get)
@@ -85,7 +83,7 @@ public protocol Direction: class {
     /// Open tab bar item with type
     ///
     /// - Parameter type: type of tab bar item
-    func showTab<T: TabFlow>(flow: T)
+    func showTab<T: DirectionFlow>(flow: T)
     
     /// Open tab bar item with index
     ///
