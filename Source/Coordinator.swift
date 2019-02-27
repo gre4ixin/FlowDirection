@@ -126,14 +126,18 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
     public func showTab<T>(flow: T) where T : Flow {
         if !middleWares.isEmpty {
             middleWares.forEach { $0.process(coordinator: self, flow: flow) }
-            middleWares.forEach { $0.resolving(coordinator: self, flow: flow, resolved: { (access) in
-                switch access {
-                case .resolve:
-                    if let index = flow.index { tabBarController.selectFlow(index) }
-                case .denied:
-                    return
+            for m in middleWares {
+                var breaking: Bool = false
+                m.resolving(coordinator: self, flow: flow) { (access) in
+                    switch access {
+                    case .resolve:
+                        if let index = flow.index { tabBarController.selectFlow(index) }
+                    case .denied:
+                        breaking = true
+                    }
                 }
-            }) }
+                if breaking { break }
+            }
         } else {
             if let index = flow.index { tabBarController.selectFlow(index) }
         }
