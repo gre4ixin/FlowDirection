@@ -168,3 +168,12 @@ extension Coordiator {
         }
     }
 }
+extension Reactive where Base: Direction {
+    var willNavigate: Observable<Flow> {
+        return self.base.broadcaster.willNavigate.asObservable()
+    }
+    
+    var didNavigate: Observable<Flow> {
+        return self.base.broadcaster.didNavigate.asObservable()
+    }
+}
