@@ -35,7 +35,7 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
         return tabBarController.viewControllers as? [UINavigationController] ?? []
     }
     
-    init(navigationController: UINavigationController, tabBarController: TabBarDirection<Flows>, builder: Builder) {
+    public init(navigationController: UINavigationController, tabBarController: TabBarDirection<Flows>, builder: Builder) {
         self.navigationController = navigationController
         self.tabBarController = tabBarController
         self.builder = builder
