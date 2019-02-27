@@ -40,7 +40,7 @@ open class TabBarDirection<Elements: Flow>: UITabBarController, UITabBarControll
         didSet {}
     }
     
-    init(flows: [Elements]) {
+    public init(flows: [Elements]) {
         flowsArray = flows
         super.init(nibName: nil, bundle: nil)
         delegate = self
