@@ -69,3 +69,4 @@ fastlane/test_output
 FlowDirection.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
 FlowDirection.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
 Pods
+.DS_Store
