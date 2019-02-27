@@ -20,16 +20,7 @@ open class TabBarDirection<Elements: Flow>: UITabBarController, UITabBarControll
     }
     
     /// set view your flows
-    public var flowsArray: [TabBarFlow] = [] {
-        willSet {
-            self.viewControllers = []
-            newValue.forEach { (flow) in
-                if let vc = flow.flow {
-                    self.viewControllers?.append(vc)
-                }
-            }
-        }
-    }
+    public var flowsArray: [TabBarFlow] = []
     
     override open var selectedViewController: UIViewController? {
         willSet {
@@ -42,6 +33,12 @@ open class TabBarDirection<Elements: Flow>: UITabBarController, UITabBarControll
     
     public init(flows: [Elements]) {
         flowsArray = flows
+        super.init(nibName: nil, bundle: nil)
+        setFlow(flows: flows)
+        delegate = self
+    }
+    
+    public init(navigationFlows: [Elements]) {
         super.init(nibName: nil, bundle: nil)
         delegate = self
     }
@@ -75,4 +72,17 @@ open class TabBarDirection<Elements: Flow>: UITabBarController, UITabBarControll
         return true
     }
 
+}
+
+extension TabBarDirection {
+    private func setFlow(flows: [TabBarFlow]) {
+        self.viewControllers = []
+        var tempFlows: [UIViewController] = []
+        flows.forEach { (flow) in
+            if let vc = flow.flow {
+                tempFlows.append(vc)
+            }
+        }
+        self.viewControllers = tempFlows
+    }
 }

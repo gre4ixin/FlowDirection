@@ -39,6 +39,11 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
         self.navigationController = navigationController
         self.tabBarController = tabBarController
         self.builder = builder
+        
+        super.init()
+        self.tabBarController.viewControllers?.forEach({ (controller) in
+            injectingSelf(controller)
+        })
     }
     
     public func registerMiddleware(middleware: CoordinatorMiddleware...) {
@@ -63,6 +68,9 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
     
     public func present<T>(_ viewFlow: T, animated: Bool) -> Observable<UIViewController> where T : Flow {
         let viewController = builder.makeViewController(with: viewFlow)
+        if let inj = viewController as? Injecting {
+            inj.coordinator = self
+        }
         navigationControllers[tabBarController.selectedIndex].present(viewController,
                                                                       animated: animated,
                                                                       completion: nil)
@@ -137,4 +145,12 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
         navigationController.popToRootViewController(animated: animated)
     }
     
+}
+
+extension Coordiator {
+    private func injectingSelf(_ controller: UIViewController) {
+        if let _inj = controller as? Injecting {
+            _inj.coordinator = self
+        }
+    }
 }
