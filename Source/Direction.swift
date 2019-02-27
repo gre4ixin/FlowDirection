@@ -59,13 +59,19 @@ public protocol Direction: class {
     /// - Parameter animated: bool value
     func popViewController(animated: Bool)
     
-    func popToCallerViewController(_ viewController: UIViewController, animated: Bool)
-    
-    /// Pull view controller to main screen
+    /// Pop to navigation view controller
     ///
-    /// - Parameter viewControllerType:
-    /// - Returns: Observable
-    func pullUpOnMain<T: Flow>(_ viewFlow: T) -> Observable<UIViewController>
+    /// - Parameter animated: bool value
+    /// - Returns: Void
+    func popNavigation(animated: Bool)
+    
+    /// Back to called view controller
+    ///
+    /// - Parameters:
+    ///   - viewController: called view controller
+    ///   - animated: bool value
+    /// - Returns: Void
+    func popToCallerViewController(_ viewController: UIViewController, animated: Bool)
     
     /// Present view controller on main nav controller
     ///
@@ -83,7 +89,7 @@ public protocol Direction: class {
     /// Open tab bar item with type
     ///
     /// - Parameter type: type of tab bar item
-    func showTab<T: DirectionFlow>(flow: T)
+    func showTab<T: Flow>(flow: T)
     
     /// Open tab bar item with index
     ///

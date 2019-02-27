@@ -23,127 +23,106 @@
     },
     {
       "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Coordinator.swift",
-      "line": 18,
-      "symbol": "Coordiator.TabFlow",
-      "symbol_kind": "source.lang.swift.decl.typealias",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Coordinator.swift",
-      "line": 45,
+      "line": 44,
       "symbol": "Coordiator.registerMiddleware(middleware:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Coordinator.swift",
-      "line": 51,
+      "line": 50,
       "symbol": "Coordiator.pushOn(navigationController:viewFlow:animated:hidesTabBar:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Coordinator.swift",
-      "line": 56,
+      "line": 57,
       "symbol": "Coordiator.pushOn(viewFlow:animated:hidesTabBar:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Coordinator.swift",
-      "line": 61,
+      "line": 64,
       "symbol": "Coordiator.present(_:animated:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Coordinator.swift",
-      "line": 66,
+      "line": 72,
       "symbol": "Coordiator.dismiss(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Coordinator.swift",
-      "line": 74,
+      "line": 85,
       "symbol": "Coordiator.popViewController(animated:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Coordinator.swift",
-      "line": 77,
+      "line": 89,
+      "symbol": "Coordiator.popNavigation(animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Coordinator.swift",
+      "line": 93,
       "symbol": "Coordiator.popToCallerViewController(_:animated:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Coordinator.swift",
-      "line": 80,
-      "symbol": "Coordiator.pullUpOnMain(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Coordinator.swift",
-      "line": 85,
+      "line": 101,
       "symbol": "Coordiator.presentOnMainNavigationController(_:animated:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Coordinator.swift",
-      "line": 89,
+      "line": 113,
       "symbol": "Coordiator.createModule(flow:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Coordinator.swift",
-      "line": 94,
+      "line": 118,
       "symbol": "Coordiator.showTab(flow:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Coordinator.swift",
-      "line": 97,
+      "line": 130,
       "symbol": "Coordiator.showTab(index:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Coordinator.swift",
-      "line": 100,
+      "line": 135,
       "symbol": "Coordiator.toRootViewController(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Direction.swift",
-      "line": 62,
-      "symbol": "Direction.popToCallerViewController(_:animated:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Flow.swift",
-      "line": 15,
-      "symbol": "DirectionFlow",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Flow.swift",
-      "line": 16,
-      "symbol": "DirectionFlow.flow",
+      "line": 14,
+      "symbol": "Flow.flow",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Flow.swift",
-      "line": 17,
-      "symbol": "DirectionFlow.index",
+      "line": 15,
+      "symbol": "Flow.index",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
@@ -157,8 +136,43 @@
     {
       "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Middleware.swift",
       "line": 11,
+      "symbol": "Resolved",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Middleware.swift",
+      "line": 12,
+      "symbol": "Resolved.denied",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Middleware.swift",
+      "line": 13,
+      "symbol": "Resolved.resolve",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Middleware.swift",
+      "line": 16,
       "symbol": "CoordinatorMiddleware",
       "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Middleware.swift",
+      "line": 24,
+      "symbol": "CoordinatorMiddleware.resolving(coordinator:flow:resolved:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Middleware.swift",
+      "line": 30,
+      "symbol": "CoordinatorMiddleware.resolving(coordinator:flow:resolved:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
@@ -184,49 +198,49 @@
     },
     {
       "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/TabBarDirection.swift",
-      "line": 32,
+      "line": 34,
       "symbol": "TabBarDirection.selectedViewController",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/TabBarDirection.swift",
-      "line": 47,
+      "line": 49,
       "symbol": "TabBarDirection.init(coder:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/TabBarDirection.swift",
-      "line": 51,
+      "line": 53,
       "symbol": "TabBarDirection.viewDidLoad()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/TabBarDirection.swift",
-      "line": 55,
+      "line": 57,
       "symbol": "TabBarDirection.selectFlow(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/TabBarDirection.swift",
-      "line": 59,
+      "line": 61,
       "symbol": "TabBarDirection.tabBarController(_:animationControllerForTransitionFrom:to:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/TabBarDirection.swift",
-      "line": 66,
+      "line": 68,
       "symbol": "TabBarDirection.tabBarController(_:didSelect:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/TabBarDirection.swift",
-      "line": 69,
+      "line": 71,
       "symbol": "TabBarDirection.tabBarController(_:shouldSelect:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"

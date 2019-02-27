@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-open class TabBarDirection<Elements: DirectionFlow>: UITabBarController, UITabBarControllerDelegate {
+open class TabBarDirection<Elements: Flow>: UITabBarController, UITabBarControllerDelegate {
     
     public typealias TabBarFlow = Elements
     
@@ -24,7 +24,9 @@ open class TabBarDirection<Elements: DirectionFlow>: UITabBarController, UITabBa
         willSet {
             self.viewControllers = []
             newValue.forEach { (flow) in
-                self.viewControllers?.append(flow.flow)
+                if let vc = flow.flow {
+                    self.viewControllers?.append(vc)
+                }
             }
         }
     }
@@ -52,8 +54,8 @@ open class TabBarDirection<Elements: DirectionFlow>: UITabBarController, UITabBa
         super.viewDidLoad()
     }
     
-    open func selectFlow(_ flow: TabBarFlow) {
-        self.selectedIndex = flow.index
+    open func selectFlow(_ flow: Int) {
+        self.selectedIndex = flow
     }
     
     open func tabBarController(_ tabBarController: UITabBarController, animationControllerForTransitionFrom fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {

@@ -10,9 +10,7 @@ import Foundation
 
 
 /// Flow protocol, you must create an enum type and description all your modules
-public protocol Flow {}
-
-public protocol DirectionFlow {
-    var flow: UIViewController { get }
-    var index: Int { get }
+public protocol Flow {
+    var flow: UIViewController? { get }
+    var index: Int? { get }
 }
