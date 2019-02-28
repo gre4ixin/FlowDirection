@@ -2,7 +2,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "FlowDirection"
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.2"
   spec.summary      = "App router"
   spec.description  = "coordinate navigation"
 
@@ -13,7 +13,7 @@ Pod::Spec.new do |spec|
   spec.author  = { "Pavel" => "pav.gre4ixin@yandex.ru" }
 
   spec.platform     = :ios
-  spec.platform     = :ios, "9.0"
+  spec.platform     = :ios, "9.1"
 
   spec.source       = { :git => "https://github.com/gre4ixin/FlowDirection.git", :tag => "#{spec.version}" } # set git
 
