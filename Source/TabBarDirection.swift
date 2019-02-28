@@ -88,10 +88,17 @@ extension TabBarDirection {
     private func setFlow(flows: [TabBarFlow]) {
         self.viewControllers = []
         var tempFlows: [UIViewController] = []
-        flows.forEach { (flow) in
-            if let vc = flow.flow, let flowVC = vc as? FlowViewController {
-                flowVC.flow = flow
-                tempFlows.append(vc)
+        for flow in flows {
+            if let vc = flow.flow {
+                if let nav = vc as? UINavigationController {
+                    if let navFlow = nav.viewControllers.first as? FlowViewController {
+                        navFlow.flow = flow
+                    }
+                    tempFlows.append(vc)
+                } else if let flowVC = vc as? FlowViewController {
+                    flowVC.flow = flow
+                    tempFlows.append(vc)
+                }
             }
         }
         self.viewControllers = tempFlows

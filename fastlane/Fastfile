@@ -4,10 +4,8 @@ GIT_PATH = "https://github.com/gre4ixin/FlowDirection.git"
 
 platform :ios do
   desc "Description of what the lane does"
-  lane :beta do
-    # git_pull
+  lane :update_docs do
     jazzy
-    # pod_repo_update(repo:GIT_PATH)
-    # cocoapods
+    git_add
   end
 end
