@@ -26,7 +26,7 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
     
     private let navigationController: UINavigationController
     private let tabBarController: TabBarDirection<Flows>
-    private let builder: Builder
+    private let builder: FlowFactory
     private(set) var middleWares: [CoordinatorMiddleware] = []
     private var currentFlow: FlowType?
     
@@ -35,7 +35,7 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
         return tabBarController.viewControllers as? [UINavigationController] ?? []
     }
     
-    public init(navigationController: UINavigationController, tabBarController: TabBarDirection<Flows>, builder: Builder) {
+    public init(navigationController: UINavigationController, tabBarController: TabBarDirection<Flows>, builder: FlowFactory) {
         self.navigationController = navigationController
         self.tabBarController = tabBarController
         self.builder = builder

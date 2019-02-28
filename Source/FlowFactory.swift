@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol Builder {
+public protocol FlowFactory {
     @discardableResult
     /// method will called for create your module
     ///
