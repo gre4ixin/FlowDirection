@@ -16,3 +16,8 @@ public protocol Flow {
     /// use tab bar direction
     var index: Int? { get }
 }
+
+public struct None: Flow, Equatable {
+    public var flow: UIViewController? { return nil }
+    public var index: Int? { return nil }
+}

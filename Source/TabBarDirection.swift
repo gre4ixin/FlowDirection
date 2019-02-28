@@ -79,7 +79,8 @@ extension TabBarDirection {
         self.viewControllers = []
         var tempFlows: [UIViewController] = []
         flows.forEach { (flow) in
-            if let vc = flow.flow {
+            if let vc = flow.flow, let flowVC = vc as? FlowViewController {
+                flowVC.flow = flow
                 tempFlows.append(vc)
             }
         }

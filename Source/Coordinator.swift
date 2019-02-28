@@ -41,6 +41,7 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
         self.builder = builder
         
         super.init()
+        
         self.tabBarController.viewControllers?.forEach({ (controller) in
             injectingSelf(controller)
         })
@@ -55,6 +56,10 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
     public func pushOn<T>(viewFlow: T, animated: Bool, hidesTabBar: Bool) -> Observable<UIViewController> where T : Flow {
         broadcaster.willNavigate.accept(viewFlow)
         let viewController = builder.makeViewController(with: viewFlow)
+        if let vc = viewController as? Injecting {
+            vc.flow = viewFlow
+            vc.coordinator = self
+        }
         viewController.hidesBottomBarWhenPushed = hidesTabBar
         navigationController.pushViewController(viewController, animated: animated)
         broadcaster.didNavigate.accept(viewFlow)
@@ -66,6 +71,7 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
         let viewController = builder.makeViewController(with: viewFlow)
         if let inj = viewController as? Injecting {
             inj.coordinator = self
+            inj.flow = viewFlow
         }
         navigationControllers[tabBarController.selectedIndex].present(viewController,
                                                                       animated: animated,
@@ -123,6 +129,10 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
                         return
                     }
                     let vc = unwrapSelf.builder.makeViewController(with: viewFlow)
+                    if let _vc = vc as? Injecting {
+                        _vc.flow = viewFlow
+                        _vc.coordinator = self
+                    }
                     unwrapSelf.navigationController.pushViewController(vc, animated: animated)
                     unwrapSelf.broadcaster.didNavigate.accept(viewFlow)
                 }
