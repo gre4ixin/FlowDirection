@@ -8,8 +8,14 @@
 
 import Foundation
 
+/// Access resolver/denied
+///
+/// - denied: denied access to module
+/// - resolve: resolve access to module
 public enum Resolved {
+    /// denied access to module
     case denied
+    /// resolve access to module
     case resolve
 }
 
@@ -47,4 +53,12 @@ public extension CoordinatorMiddleware {
     ///   - flow: flow type transition
     ///   - resolved: closure with enum entry
     public func resolving(coordinator: Direction, flow: Flow, resolved: (Resolved) -> Void) { resolved(.resolve) }
+}
+
+
+public protocol Middleware {
+    /// You can register middleware, which will be called before performing the transition
+    ///
+    /// - Parameter middleware: Middlewares array
+    func registerMiddleware(middleware: CoordinatorMiddleware...)
 }

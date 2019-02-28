@@ -9,12 +9,10 @@
 import RxSwift
 
 /// the Protocol for the description of the coordinator class
-public protocol Direction: class {
+public protocol Direction: class, Middleware, Broadcast {
     
     /// Return top view controller (only get)
     var topViewController: UIViewController? { get }
-    /// emits event willNavigate/didNavigate
-    var broadcaster: Broadcaster { get }
     
     /// Push view controller method
     ///
@@ -87,10 +85,5 @@ public protocol Direction: class {
     ///
     /// - Parameter animated: bool value
     func toRootViewController(_ animated: Bool)
-    
-    /// You can register middleware, which will be called before performing the transition
-    ///
-    /// - Parameter middleware: Middlewares array
-    func registerMiddleware(middleware: CoordinatorMiddleware...)
     
 }

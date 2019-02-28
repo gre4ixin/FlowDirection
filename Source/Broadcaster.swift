@@ -15,3 +15,8 @@ public class Broadcaster: NSObject {
     /// emits flow after transition
     public let didNavigate = PublishRelay<Flow>()
 }
+
+public protocol Broadcast {
+    /// emits event willNavigate/didNavigate
+    var broadcaster: Broadcaster { get }
+}

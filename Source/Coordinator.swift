@@ -53,13 +53,16 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
     }
     
     public func pushOn<T>(viewFlow: T, animated: Bool, hidesTabBar: Bool) -> Observable<UIViewController> where T : Flow {
+        broadcaster.willNavigate.accept(viewFlow)
         let viewController = builder.makeViewController(with: viewFlow)
         viewController.hidesBottomBarWhenPushed = hidesTabBar
         navigationController.pushViewController(viewController, animated: animated)
+        broadcaster.didNavigate.accept(viewFlow)
         return .just(viewController)
     }
     
     public func present<T>(_ viewFlow: T, animated: Bool) -> Observable<UIViewController> where T : Flow {
+        broadcaster.willNavigate.accept(viewFlow)
         let viewController = builder.makeViewController(with: viewFlow)
         if let inj = viewController as? Injecting {
             inj.coordinator = self
@@ -67,9 +70,14 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
         navigationControllers[tabBarController.selectedIndex].present(viewController,
                                                                       animated: animated,
                                                                       completion: nil)
+        broadcaster.didNavigate.accept(viewFlow)
         return .just(viewController)
     }
     
+    /// Dissmissing view controller
+    ///
+    /// - Parameter animated: bool value
+    /// - Returns: Observable<Void>
     public func dismiss(_ animated: Bool) -> Observable<Void> {
         let completionObservable: Observable<Void> = .create { [unowned self] observer in
             self.navigationControllers[self.tabBarController.selectedIndex]
@@ -99,12 +107,25 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
         navigationController.popToViewController(viewControllers[popToIndex], animated: animated)
     }
     
+    /// If you have to present controller over the tab bar and other controller you can use this method Example (You want to present registration/authorization controller for user)
+    ///
+    /// - Parameters:
+    ///   - viewFlow: flow to present
+    ///   - animated: bool value
     public func presentOnMainNavigationController<T>(_ viewFlow: T, animated: Bool) where T : Flow {
         middleWares.forEach { $0.process(coordinator: self, flow: viewFlow) }
         middleWares.forEach { $0.resolving(coordinator: self, flow: viewFlow, resolved: { (access) in
             switch access {
             case .resolve:
-                builder.makeViewController(with: viewFlow)
+                broadcaster.willNavigate.accept(viewFlow)
+                DispatchQueue.main.async { [weak self] in
+                    guard let unwrapSelf = self else {
+                        return
+                    }
+                    let vc = unwrapSelf.builder.makeViewController(with: viewFlow)
+                    unwrapSelf.navigationController.pushViewController(vc, animated: animated)
+                    unwrapSelf.broadcaster.didNavigate.accept(viewFlow)
+                }
             case .denied:
                 return
             }
@@ -116,6 +137,9 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
         return vc
     }
     
+    /// show tab with flow
+    ///
+    /// - Parameter flow: Flow
     public func showTab<T>(flow: T) where T : Flow {
         if !middleWares.isEmpty {
             middleWares.forEach { $0.process(coordinator: self, flow: flow) }
@@ -124,7 +148,9 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
                 m.resolving(coordinator: self, flow: flow) { (access) in
                     switch access {
                     case .resolve:
+                        broadcaster.willNavigate.accept(flow)
                         if let index = flow.index { tabBarController.selectFlow(index) }
+                        broadcaster.didNavigate.accept(flow)
                     case .denied:
                         breaking = true
                     }
@@ -136,11 +162,17 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
         }
     }
     
+    /// show tab with index
+    ///
+    /// - Parameter index: integer value
     public func showTab(index: Int) {
         tabBarController.selectedIndex = index
         navigationControllers[tabBarController.selectedIndex].popToRootViewController(animated: false)
     }
     
+    /// analog popToRoot
+    ///
+    /// - Parameter animated: bool value
     public func toRootViewController(_ animated: Bool) {
         showTab(index: tabBarController.selectedIndex)
         navigationController.popToRootViewController(animated: animated)
@@ -149,6 +181,9 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
 }
 
 extension Coordiator {
+    /// Injecting coordinator to module
+    ///
+    /// - Parameter controller: UIViewController
     private func injectingSelf(_ controller: UIViewController) {
         if let nav = controller as? UINavigationController {
             if let _inj = nav.viewControllers.first as? Injecting {
