@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Broadcaster Class Reference</title>
+    <title>Broadcast Protocol Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/Broadcaster" class="dashAnchor"></a>
-    <a title="Broadcaster Class Reference"></a>
+    <a name="//apple_ref/swift/Protocol/Broadcast" class="dashAnchor"></a>
+    <a title="Broadcast Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">FlowDirection Docs</a> (61% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">FlowDirection Reference</a>
         <img id="carat" src="../img/carat.png" />
-        Broadcaster Class Reference
+        Broadcast Protocol Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -91,10 +91,10 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Broadcaster</h1>
+            <h1>Broadcast</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Broadcaster</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Broadcast</span></code></pre>
 
                 </div>
               </div>
@@ -107,9 +107,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/"></a>
-                    <a name="//apple_ref/swift/Property/willNavigate" class="dashAnchor"></a>
-                    <a class="token" href="#/">willNavigate</a>
+                    <a name="/s:13FlowDirection9BroadcastP11broadcasterAA11BroadcasterCvp"></a>
+                    <a name="//apple_ref/swift/Property/broadcaster" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13FlowDirection9BroadcastP11broadcasterAA11BroadcasterCvp">broadcaster</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -117,41 +117,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>emits flow type before performing transition</p>
+                        <p>emits event willNavigate/didNavigate</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">willNavigate</span><span class="p">:</span> <span class="o">&lt;&lt;</span><span class="n">error</span> <span class="n">type</span><span class="o">&gt;&gt;</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/"></a>
-                    <a name="//apple_ref/swift/Property/didNavigate" class="dashAnchor"></a>
-                    <a class="token" href="#/">didNavigate</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>emits flow after transition</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">didNavigate</span><span class="p">:</span> <span class="o">&lt;&lt;</span><span class="n">error</span> <span class="n">type</span><span class="o">&gt;&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">broadcaster</span><span class="p">:</span> <span class="kt"><a href="../Classes/Broadcaster.html">Broadcaster</a></span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
