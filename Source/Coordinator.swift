@@ -52,13 +52,6 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
         }
     }
     
-    public func pushOn<T>(navigationController: UINavigationController, viewFlow: T, animated: Bool, hidesTabBar: Bool) -> Observable<UIViewController> where T : Flow {
-        let viewController = builder.makeViewController(with: viewFlow)
-        viewController.hidesBottomBarWhenPushed = hidesTabBar
-        navigationController.pushViewController(viewController, animated: animated)
-        return .just(viewController)
-    }
-    
     public func pushOn<T>(viewFlow: T, animated: Bool, hidesTabBar: Bool) -> Observable<UIViewController> where T : Flow {
         let viewController = builder.makeViewController(with: viewFlow)
         viewController.hidesBottomBarWhenPushed = hidesTabBar
@@ -166,14 +159,5 @@ extension Coordiator {
                 _inj.coordinator = self
             }
         }
-    }
-}
-extension Reactive where Base: Direction {
-    var willNavigate: Observable<Flow> {
-        return self.base.broadcaster.willNavigate.asObservable()
-    }
-    
-    var didNavigate: Observable<Flow> {
-        return self.base.broadcaster.didNavigate.asObservable()
     }
 }

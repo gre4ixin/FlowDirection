@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46918E902227B93600BA2C7C /* Direction+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46918E8F2227B93600BA2C7C /* Direction+Rx.swift */; };
 		46F0790422255B390028D9BF /* FlowDirection.h in Headers */ = {isa = PBXBuildFile; fileRef = 46F0790222255B390028D9BF /* FlowDirection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46F0790D222560E10028D9BF /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F0790C222560E10028D9BF /* Direction.swift */; };
 		46F55A992226683E0077F17D /* TabBarDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F55A982226683E0077F17D /* TabBarDirection.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		46918E8F2227B93600BA2C7C /* Direction+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Direction+Rx.swift"; sourceTree = "<group>"; };
 		46F078FF22255B390028D9BF /* FlowDirection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FlowDirection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46F0790222255B390028D9BF /* FlowDirection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlowDirection.h; sourceTree = "<group>"; };
 		46F0790322255B390028D9BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				46F55A982226683E0077F17D /* TabBarDirection.swift */,
 				46F55A9A22266C270077F17D /* Flow.swift */,
 				46F55AA42226CA010077F17D /* FlowViewController.swift */,
+				46918E8F2227B93600BA2C7C /* Direction+Rx.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				46F55A992226683E0077F17D /* TabBarDirection.swift in Sources */,
 				65B2F6BF2225EBAD004B7D3A /* Middleware.swift in Sources */,
 				46F55A9B22266C270077F17D /* Flow.swift in Sources */,
+				46918E902227B93600BA2C7C /* Direction+Rx.swift in Sources */,
 				65B2F6BB2225E401004B7D3A /* Builder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

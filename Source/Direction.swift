@@ -19,19 +19,6 @@ public protocol Direction: class {
     /// Push view controller method
     ///
     /// - Parameters:
-    ///   - navigationController: navigation controller in which embed controller
-    ///   - viewFlow: enum
-    ///   - animated: bool value
-    ///   - hidesTabBar: bool value
-    /// - Returns: observable with type UIViewController
-    func pushOn<T: Flow>(navigationController: UINavigationController,
-                viewFlow: T,
-                animated: Bool,
-                hidesTabBar: Bool) -> Observable<UIViewController>
-    
-    /// Push view controller method
-    ///
-    /// - Parameters:
     ///   - viewFlow: enum
     ///   - animated: bool value
     ///   - hidesTabBar: bool value
