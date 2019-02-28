@@ -2,6 +2,8 @@
 
 ### Implementation pattern coordinator with RxSwift
 
+#### Setup
+
 ```swift
 let disposeBag = DisposeBag()
     var window: UIWindow?
@@ -32,4 +34,36 @@ let disposeBag = DisposeBag()
         return true
     }
 
+```
+
+#### Middleware
+
+Middleware is a protocol `CoordinatorMiddleware` you can use two method, simple method with name `process`
+```swift
+func process(coordinator: Direction, flow: Flow)
+``` intended for implementations some actions in special case. 
+Second method is `resolving`
+```swift
+func resolving(coordinator: Direction, flow: Flow, resolved: (Resolved) -> Void)
+```
+used for implements `denied` or `resolve` actions in special case and you can use special case with change your flow.
+##### Example
+
+```swift
+class DeniedMiddleware: CoordinatorMiddleware {
+    func resolving(coordinator: Direction, flow: Flow, resolved: (Resolved) -> Void) {
+        guard let flow = flow as? ViewControllerType else {
+            return
+        }
+        
+        switch flow {
+        case .tabOne:
+            resolved(.denied)
+        case .tabTwo:
+            resolved(.deniedWithAction(action: .present(to: ViewControllerType.first)))
+        default:
+            resolved(.denied)
+        }
+    }
+}
 ```
