@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Resolved Enumeration Reference</title>
+    <title>DirectionEvent Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Enum/Resolved" class="dashAnchor"></a>
-    <a title="Resolved Enumeration Reference"></a>
+    <a name="//apple_ref/swift/Enum/DirectionEvent" class="dashAnchor"></a>
+    <a title="DirectionEvent Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">FlowDirection Docs</a> (61% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">FlowDirection Reference</a>
         <img id="carat" src="../img/carat.png" />
-        Resolved Enumeration Reference
+        DirectionEvent Enumeration Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -102,18 +102,22 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Resolved</h1>
+            <h1>DirectionEvent</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Resolved</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">DirectionEvent</span></code></pre>
 
                 </div>
               </div>
-            <p>Access resolver/denied</p>
+            <p>Middleware detail resolved event</p>
 
 <ul>
-<li>denied: denied access to module</li>
-<li>resolve: resolve access to module</li>
+<li>push: push view controller with flow</li>
+<li>pop: pop view controller</li>
+<li>present: present view controller with flow</li>
+<li>showTab: select tab with flow</li>
+<li>pushOnMain: push on main nav bar</li>
+<li>popRoot: pop to root view controller for current navigation bar</li>
 </ul>
 
           </section>
@@ -123,9 +127,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13FlowDirection8ResolvedO6deniedyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/denied" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13FlowDirection8ResolvedO6deniedyA2CmF">denied</a>
+                    <a name="/s:13FlowDirection0B5EventO4pushyAcA0A0_p_tcACmF"></a>
+                    <a name="//apple_ref/swift/Element/push(with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13FlowDirection0B5EventO4pushyAcA0A0_p_tcACmF">push(with:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -133,14 +137,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>denied access to module</p>
+                        <p>push view controller with flow</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">denied</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">push</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Flow.html">Flow</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -150,9 +154,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13FlowDirection8ResolvedO7resolveyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/resolve" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13FlowDirection8ResolvedO7resolveyA2CmF">resolve</a>
+                    <a name="/s:13FlowDirection0B5EventO3popyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/pop" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13FlowDirection0B5EventO3popyA2CmF">pop</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -160,14 +164,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>resolve access to module</p>
+                        <p>pop view controller</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">resolve</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">pop</span></code></pre>
 
                         </div>
                       </div>
@@ -177,9 +181,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13FlowDirection8ResolvedO16deniedWithActionyAcA0B5EventO_tcACmF"></a>
-                    <a name="//apple_ref/swift/Element/deniedWithAction(action:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13FlowDirection8ResolvedO16deniedWithActionyAcA0B5EventO_tcACmF">deniedWithAction(action:)</a>
+                    <a name="/s:13FlowDirection0B5EventO7presentyAcA0A0_p_tcACmF"></a>
+                    <a name="//apple_ref/swift/Element/present(to:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13FlowDirection0B5EventO7presentyAcA0A0_p_tcACmF">present(to:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -187,14 +191,95 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>present view controller with flow</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">deniedWithAction</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Enums/DirectionEvent.html">DirectionEvent</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">present</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Flow.html">Flow</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13FlowDirection0B5EventO7showTabyAcA0A0_p_tcACmF"></a>
+                    <a name="//apple_ref/swift/Element/showTab(with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13FlowDirection0B5EventO7showTabyAcA0A0_p_tcACmF">showTab(with:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>select tab with flow</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">showTab</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Flow.html">Flow</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13FlowDirection0B5EventO13presentOnMainyAcA0A0_p_tcACmF"></a>
+                    <a name="//apple_ref/swift/Element/presentOnMain(with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13FlowDirection0B5EventO13presentOnMainyAcA0A0_p_tcACmF">presentOnMain(with:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>presentation on main nav bar</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">presentOnMain</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Flow.html">Flow</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13FlowDirection0B5EventO7popRootyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/popRoot" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13FlowDirection0B5EventO7popRootyA2CmF">popRoot</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>pop to root view controller for current navigation bar</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">popRoot</span></code></pre>
 
                         </div>
                       </div>
