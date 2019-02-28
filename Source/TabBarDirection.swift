@@ -14,10 +14,17 @@ open class TabBarDirection<Elements: Flow>: UITabBarController, UITabBarControll
     public typealias TabBarFlow = Elements
     
     private var itemIndexSubject = BehaviorSubject<Int>(value: 0)
+    private var flowSubject = PublishSubject<Flow>()
     
     public var selectedItemIndex: Observable<Int> {
         return itemIndexSubject.asObservable()
     }
+    
+    public var selectedFlow: Observable<Flow> {
+        return flowSubject.asObservable()
+    }
+    
+    internal var previousIndex: Int = 0
     
     /// set view your flows
     public var flowsArray: [TabBarFlow] = []
@@ -26,6 +33,9 @@ open class TabBarDirection<Elements: Flow>: UITabBarController, UITabBarControll
         willSet {
             if let vc = newValue, let index = self.viewControllers?.firstIndex(of:vc) {
                 itemIndexSubject.onNext(index)
+                if let flowVC = newValue as? Injecting, let flow = flowVC.flow {
+                    flowSubject.onNext(flow)
+                }
             }
         }
         didSet {}

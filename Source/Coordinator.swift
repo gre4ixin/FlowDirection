@@ -29,6 +29,7 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
     private let builder: FlowFactory
     private(set) var middleWares: [CoordinatorMiddleware] = []
     private var currentFlow: FlowType?
+    private var bag = DisposeBag()
     
     /// array of navigation controllers
     private var navigationControllers: [UINavigationController] {
@@ -45,6 +46,8 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
         self.tabBarController.viewControllers?.forEach({ (controller) in
             injectingSelf(controller)
         })
+        
+        bind()
     }
     
     public func registerMiddleware(middleware: CoordinatorMiddleware...) {
@@ -120,26 +123,34 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
     ///   - animated: bool value
     public func presentOnMainNavigationController<T>(_ viewFlow: T, animated: Bool) where T : Flow {
         middleWares.forEach { $0.process(coordinator: self, flow: viewFlow) }
-        middleWares.forEach { $0.resolving(coordinator: self, flow: viewFlow, resolved: { (access) in
-            switch access {
-            case .resolve:
-                broadcaster.willNavigate.accept(viewFlow)
-                DispatchQueue.main.async { [weak self] in
-                    guard let unwrapSelf = self else {
-                        return
+        for m in middleWares {
+            var breaking = false
+            m.resolving(coordinator: self, flow: viewFlow) { (access) in
+                switch access {
+                case .resolve:
+                    broadcaster.willNavigate.accept(viewFlow)
+                    DispatchQueue.main.async { [weak self] in
+                        guard let unwrapSelf = self else {
+                            return
+                        }
+                        let vc = unwrapSelf.builder.makeViewController(with: viewFlow)
+                        if let _vc = vc as? Injecting {
+                            _vc.flow = viewFlow
+                            _vc.coordinator = self
+                        }
+                        unwrapSelf.navigationController.pushViewController(vc, animated: animated)
+                        unwrapSelf.broadcaster.didNavigate.accept(viewFlow)
                     }
-                    let vc = unwrapSelf.builder.makeViewController(with: viewFlow)
-                    if let _vc = vc as? Injecting {
-                        _vc.flow = viewFlow
-                        _vc.coordinator = self
-                    }
-                    unwrapSelf.navigationController.pushViewController(vc, animated: animated)
-                    unwrapSelf.broadcaster.didNavigate.accept(viewFlow)
+                case .denied:
+                    return
+                case .deniedWithAction(action: let action):
+                    middlewareActionHandler(action)
+                    breaking = true
+                    return
                 }
-            case .denied:
-                return
             }
-        })}
+            if breaking { break }
+        }
     }
     
     public func createModule<T>(flow: T) -> UIViewController where T : Flow {
@@ -163,6 +174,10 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
                         broadcaster.didNavigate.accept(flow)
                     case .denied:
                         breaking = true
+                    case .deniedWithAction(action: let action):
+                        middlewareActionHandler(action)
+                        breaking = true
+                        return
                     }
                 }
                 if breaking { break }
@@ -176,6 +191,7 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
     ///
     /// - Parameter index: integer value
     public func showTab(index: Int) {
+        tabBarController.previousIndex = tabBarController.selectedIndex
         tabBarController.selectedIndex = index
         navigationControllers[tabBarController.selectedIndex].popToRootViewController(animated: false)
     }
@@ -186,6 +202,35 @@ public class Coordiator<Flows: Flow>: NSObject, Direction {
     public func toRootViewController(_ animated: Bool) {
         showTab(index: tabBarController.selectedIndex)
         navigationController.popToRootViewController(animated: animated)
+    }
+    
+    private func middlewareActionHandler(_ action: DirectionEvent) {
+        switch action {
+        case .pop:
+            self.popViewController(animated: false)
+        case .popRoot:
+            self.toRootViewController(false)
+        case .present(to: let flow):
+            if let _flow = flow as? Flows {
+                _ = self.present(_flow, animated: true)
+            }
+            break
+        case .push(let with):
+            if let _flow = with as? Flows {
+                _ = self.pushOn(viewFlow: _flow, animated: true, hidesTabBar: true)
+            }
+            break
+        case .showTab(let with):
+            if let _flow = with as? Flows {
+                self.showTab(flow: _flow)
+            }
+            break
+        case .presentOnMain(let with):
+            if let _flow = with as? Flows {
+                self.presentOnMainNavigationController(_flow, animated: true)
+            }
+            break
+        }
     }
     
 }
@@ -204,5 +249,31 @@ extension Coordiator {
                 _inj.coordinator = self
             }
         }
+    }
+}
+
+extension Coordiator {
+    private func bind() {
+        tabBarController.selectedFlow.subscribe { [unowned self] (event) in
+            if let flow = event.element {
+                self.middleWares.forEach { $0.process(coordinator: self, flow: flow) }
+                for m in self.middleWares {
+                    var breaking = false
+                    m.resolving(coordinator: self, flow: flow, resolved: { (access) in
+                        switch access {
+                        case .resolve:
+                            self.broadcaster.willNavigate.accept(flow)
+                        case .denied:
+                            breaking = true
+                        case .deniedWithAction(action: let action):
+                            self.middlewareActionHandler(action)
+                            breaking = true
+                            return
+                        }
+                    })
+                    if breaking { break }
+                }
+            }
+        }.disposed(by: bag)
     }
 }

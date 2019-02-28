@@ -8,6 +8,30 @@
 
 import Foundation
 
+/// Middleware detail resolved event
+///
+/// - push: push view controller with flow
+/// - pop: pop view controller
+/// - present: present view controller with flow
+/// - showTab: select tab with flow
+/// - pushOnMain: push on main nav bar
+/// - popRoot: pop to root view controller for current navigation bar
+public enum DirectionEvent {
+    /// push view controller with flow
+    case push(with: Flow)
+    /// pop view controller
+    case pop
+    /// present view controller with flow
+    case present(to: Flow)
+    /// select tab with flow
+    case showTab(with: Flow)
+    /// presentation on main nav bar
+    case presentOnMain(with: Flow)
+    /// pop to root view controller for current navigation bar
+    case popRoot
+}
+
+
 /// Access resolver/denied
 ///
 /// - denied: denied access to module
@@ -17,6 +41,8 @@ public enum Resolved {
     case denied
     /// resolve access to module
     case resolve
+    
+    case deniedWithAction(action: DirectionEvent)
 }
 
 public protocol CoordinatorMiddleware {
