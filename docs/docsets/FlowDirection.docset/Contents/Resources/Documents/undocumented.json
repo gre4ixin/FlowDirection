@@ -78,20 +78,6 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Flow.swift",
-      "line": 14,
-      "symbol": "Flow.flow",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/Flow.swift",
-      "line": 15,
-      "symbol": "Flow.index",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/pavel.grechikhin/Documents/FlowDirection/Source/FlowViewController.swift",
       "line": 13,
       "symbol": "Injecting.coordinator",
