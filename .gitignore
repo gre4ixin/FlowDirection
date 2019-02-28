@@ -71,3 +71,4 @@ FlowDirection.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plis
 Pods
 .DS_Store
 Source/Test.swift
+docs/docsets/FlowDirection.tgz
