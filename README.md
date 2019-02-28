@@ -9,6 +9,8 @@
 
 #### Implementation pattern coordinator with RxSwift
 
+[Documentation](docs/index.html)
+
 #### Setup
 
 ```swift
