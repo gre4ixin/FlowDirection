@@ -1,6 +1,6 @@
 # FlowDirection
 
-### Implementation pattern coordinator with RxSwift
+#### Implementation pattern coordinator with RxSwift
 
 #### Setup
 
@@ -41,7 +41,9 @@ let disposeBag = DisposeBag()
 Middleware is a protocol `CoordinatorMiddleware` you can use two method, simple method with name `process`
 ```swift
 func process(coordinator: Direction, flow: Flow)
-``` intended for implementations some actions in special case. 
+``` 
+intended for implementations some actions in special case. 
+
 Second method is `resolving`
 ```swift
 func resolving(coordinator: Direction, flow: Flow, resolved: (Resolved) -> Void)
