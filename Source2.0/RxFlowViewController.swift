@@ -16,7 +16,7 @@ public protocol RxFlowController: class {
     var flow: Flow? { get set }
 }
 
-public class RxFlowViewController: UIViewController, RxFlowController {
+open class RxFlowViewController: UIViewController, RxFlowController {
     weak public var rxcoordinator: RxCoordinator?
     weak public var listener: PublishRelay<(DirectionRoute, [RxCoordinatorMiddleware])>?
     public var flow: Flow?
