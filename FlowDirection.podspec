@@ -17,7 +17,7 @@ Pod::Spec.new do |spec|
 
   spec.source       = { :git => "https://github.com/gre4ixin/FlowDirection.git", :tag => "#{spec.version}" } # set git
 
-  spec.source_files  = 'Source/*.swift'
+  spec.source_files  = 'Source2.0/*.swift'
 
   spec.framework  = "UIKit"
   spec.dependency "RxSwift", "~> 4.4.1"

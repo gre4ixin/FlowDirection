@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		46918E902227B93600BA2C7C /* Direction+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46918E8F2227B93600BA2C7C /* Direction+Rx.swift */; };
+		46918E95222928B300BA2C7C /* RxDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46918E94222928B300BA2C7C /* RxDirection.swift */; };
+		46918E9922292A6600BA2C7C /* RxCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46918E9822292A6600BA2C7C /* RxCoordinator.swift */; };
+		46918E9B2229337800BA2C7C /* RxCoordinatorMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46918E9A2229337800BA2C7C /* RxCoordinatorMiddleware.swift */; };
+		46918E9D22293FFB00BA2C7C /* RxFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46918E9C22293FFB00BA2C7C /* RxFlowViewController.swift */; };
+		46918E9F222947CA00BA2C7C /* RxTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46918E9E222947CA00BA2C7C /* RxTabBarController.swift */; };
+		46918EA1222948DE00BA2C7C /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46918EA0222948DE00BA2C7C /* Middleware.swift */; };
 		46F0790422255B390028D9BF /* FlowDirection.h in Headers */ = {isa = PBXBuildFile; fileRef = 46F0790222255B390028D9BF /* FlowDirection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46F0790D222560E10028D9BF /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F0790C222560E10028D9BF /* Direction.swift */; };
 		46F55A992226683E0077F17D /* TabBarDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F55A982226683E0077F17D /* TabBarDirection.swift */; };
@@ -15,13 +20,17 @@
 		46F55AA52226CA010077F17D /* FlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F55AA42226CA010077F17D /* FlowViewController.swift */; };
 		65B2F6B72225DC35004B7D3A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B2F6B62225DC35004B7D3A /* Coordinator.swift */; };
 		65B2F6BB2225E401004B7D3A /* FlowFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B2F6BA2225E401004B7D3A /* FlowFactory.swift */; };
-		65B2F6BF2225EBAD004B7D3A /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B2F6BE2225EBAD004B7D3A /* Middleware.swift */; };
 		65B2F6C12225F0E1004B7D3A /* Broadcaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B2F6C02225F0E1004B7D3A /* Broadcaster.swift */; };
 		B32815EDE67738A2E7D5413E /* Pods_FlowDirection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74A283B06FFCD36C2C742887 /* Pods_FlowDirection.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		46918E8F2227B93600BA2C7C /* Direction+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Direction+Rx.swift"; sourceTree = "<group>"; };
+		46918E94222928B300BA2C7C /* RxDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxDirection.swift; sourceTree = "<group>"; };
+		46918E9822292A6600BA2C7C /* RxCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCoordinator.swift; sourceTree = "<group>"; };
+		46918E9A2229337800BA2C7C /* RxCoordinatorMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCoordinatorMiddleware.swift; sourceTree = "<group>"; };
+		46918E9C22293FFB00BA2C7C /* RxFlowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxFlowViewController.swift; sourceTree = "<group>"; };
+		46918E9E222947CA00BA2C7C /* RxTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTabBarController.swift; sourceTree = "<group>"; };
+		46918EA0222948DE00BA2C7C /* Middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Middleware.swift; sourceTree = "<group>"; };
 		46F078FF22255B390028D9BF /* FlowDirection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FlowDirection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46F0790222255B390028D9BF /* FlowDirection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlowDirection.h; sourceTree = "<group>"; };
 		46F0790322255B390028D9BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -32,7 +41,6 @@
 		4C9B6E07CAC05B00F2066764 /* Pods-FlowDirection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowDirection.release.xcconfig"; path = "Target Support Files/Pods-FlowDirection/Pods-FlowDirection.release.xcconfig"; sourceTree = "<group>"; };
 		65B2F6B62225DC35004B7D3A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		65B2F6BA2225E401004B7D3A /* FlowFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowFactory.swift; sourceTree = "<group>"; };
-		65B2F6BE2225EBAD004B7D3A /* Middleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middleware.swift; sourceTree = "<group>"; };
 		65B2F6C02225F0E1004B7D3A /* Broadcaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Broadcaster.swift; sourceTree = "<group>"; };
 		74A283B06FFCD36C2C742887 /* Pods_FlowDirection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlowDirection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8525519ECE95B91255A087B8 /* Pods-FlowDirection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowDirection.debug.xcconfig"; path = "Target Support Files/Pods-FlowDirection/Pods-FlowDirection.debug.xcconfig"; sourceTree = "<group>"; };
@@ -59,9 +67,24 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		46918E932229289D00BA2C7C /* Source2.0 */ = {
+			isa = PBXGroup;
+			children = (
+				46918E94222928B300BA2C7C /* RxDirection.swift */,
+				46918E9822292A6600BA2C7C /* RxCoordinator.swift */,
+				46918E9A2229337800BA2C7C /* RxCoordinatorMiddleware.swift */,
+				46918E9C22293FFB00BA2C7C /* RxFlowViewController.swift */,
+				46F55A9A22266C270077F17D /* Flow.swift */,
+				65B2F6BA2225E401004B7D3A /* FlowFactory.swift */,
+				46918E9E222947CA00BA2C7C /* RxTabBarController.swift */,
+			);
+			path = Source2.0;
+			sourceTree = "<group>";
+		};
 		46F078F522255B390028D9BF = {
 			isa = PBXGroup;
 			children = (
+				46918E932229289D00BA2C7C /* Source2.0 */,
 				46F0790B22255B430028D9BF /* Source */,
 				46F0790122255B390028D9BF /* FlowDirection */,
 				46F0790022255B390028D9BF /* Products */,
@@ -90,15 +113,12 @@
 		46F0790B22255B430028D9BF /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				46918EA0222948DE00BA2C7C /* Middleware.swift */,
 				46F0790C222560E10028D9BF /* Direction.swift */,
 				65B2F6B62225DC35004B7D3A /* Coordinator.swift */,
-				65B2F6BA2225E401004B7D3A /* FlowFactory.swift */,
-				65B2F6BE2225EBAD004B7D3A /* Middleware.swift */,
 				65B2F6C02225F0E1004B7D3A /* Broadcaster.swift */,
 				46F55A982226683E0077F17D /* TabBarDirection.swift */,
-				46F55A9A22266C270077F17D /* Flow.swift */,
 				46F55AA42226CA010077F17D /* FlowViewController.swift */,
-				46918E8F2227B93600BA2C7C /* Direction+Rx.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -216,15 +236,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46918E9922292A6600BA2C7C /* RxCoordinator.swift in Sources */,
 				46F55AA52226CA010077F17D /* FlowViewController.swift in Sources */,
+				46918E9D22293FFB00BA2C7C /* RxFlowViewController.swift in Sources */,
 				65B2F6B72225DC35004B7D3A /* Coordinator.swift in Sources */,
 				46F0790D222560E10028D9BF /* Direction.swift in Sources */,
+				46918E9B2229337800BA2C7C /* RxCoordinatorMiddleware.swift in Sources */,
 				65B2F6C12225F0E1004B7D3A /* Broadcaster.swift in Sources */,
+				46918E9F222947CA00BA2C7C /* RxTabBarController.swift in Sources */,
 				46F55A992226683E0077F17D /* TabBarDirection.swift in Sources */,
-				65B2F6BF2225EBAD004B7D3A /* Middleware.swift in Sources */,
+				46918E95222928B300BA2C7C /* RxDirection.swift in Sources */,
 				46F55A9B22266C270077F17D /* Flow.swift in Sources */,
-				46918E902227B93600BA2C7C /* Direction+Rx.swift in Sources */,
 				65B2F6BB2225E401004B7D3A /* FlowFactory.swift in Sources */,
+				46918EA1222948DE00BA2C7C /* Middleware.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
