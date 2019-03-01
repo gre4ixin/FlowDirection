@@ -69,11 +69,11 @@ extension RxTabBarController {
         for flow in flows {
             if let vc = flow.flow {
                 if let nav = vc as? UINavigationController {
-                    if let navFlow = nav.viewControllers.first as? FlowViewController {
+                    if let navFlow = nav.viewControllers.first as? RxFlowController {
                         navFlow.flow = flow
                     }
                     tempFlows.append(vc)
-                } else if let flowVC = vc as? FlowViewController {
+                } else if let flowVC = vc as? RxFlowController {
                     flowVC.flow = flow
                     tempFlows.append(vc)
                 }
