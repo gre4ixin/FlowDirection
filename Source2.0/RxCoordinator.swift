@@ -33,6 +33,10 @@ public class RxCoordinator: NSObject, RxDirection {
         self.navigationController = navigationController
         self.tabBarController = tabBarController
         self.builder = builder
+        super.init()
+        self.tabBarController.viewControllers?.forEach({ (controller) in
+            injectingSelf(controller)
+        })
     }
     
     public func pushOn(viewFlow: Flow, animated: Bool, hidesTabBar: Bool) {
@@ -169,3 +173,19 @@ public extension Reactive where Base: RxCoordinator {
     
 }
 
+extension RxCoordinator {
+    /// Injecting coordinator to module
+    ///
+    /// - Parameter controller: UIViewController
+    private func injectingSelf(_ controller: UIViewController) {
+        if let nav = controller as? UINavigationController {
+            if let _inj = nav.viewControllers.first as? RxFlowController {
+                _inj.rxcoordinator = self
+            }
+        } else {
+            if let _inj = controller as? RxFlowController {
+                _inj.rxcoordinator = self
+            }
+        }
+    }
+}
