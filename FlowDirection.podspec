@@ -6,7 +6,7 @@ Pod::Spec.new do |spec|
   spec.summary      = "App router"
   spec.description  = "coordinate navigation"
 
-  spec.homepage     = "https://github.com/gre4ixin/FlowDirection.com" # set homepage
+  spec.homepage     = "https://github.com/gre4ixin/FlowDirection"
 
   spec.license = { :type => "MIT", :file => "LICENSE" }
 
