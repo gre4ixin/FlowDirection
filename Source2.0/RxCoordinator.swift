@@ -37,6 +37,7 @@ public class RxCoordinator: NSObject, RxDirection {
         self.tabBarController.viewControllers?.forEach({ (controller) in
             injectingSelf(controller)
         })
+        bind()
     }
     
     public func pushOn(viewFlow: Flow, animated: Bool, hidesTabBar: Bool) {
