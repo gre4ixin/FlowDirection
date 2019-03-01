@@ -14,5 +14,7 @@ public protocol FlowFactory {
     ///
     /// - Parameter flow: module type
     /// - Returns: view controller
-    func makeViewController<T: Flow>(with flow: T) -> UIViewController
+    func makeViewController1<T: Flow>(with flow: T) -> UIViewController
+    
+    func makeViewController(with flow: Flow) -> UIViewController
 }

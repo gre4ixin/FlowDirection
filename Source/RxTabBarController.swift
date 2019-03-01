@@ -1,64 +1,42 @@
 //
-//  TabBarDirection.swift
+//  RxTabBarController.swift
 //  FlowDirection
 //
-//  Created by pavel.grechikhin on 27.02.2019.
+//  Created by pavel.grechikhin on 01.03.2019.
 //  Copyright © 2019 pavel.grechikhin. All rights reserved.
 //
 
 import UIKit
 import RxSwift
 
-open class TabBarDirection<Elements: Flow>: UITabBarController, UITabBarControllerDelegate {
-    
-    public typealias TabBarFlow = Elements
-    
+open class RxTabBarController: UITabBarController, UITabBarControllerDelegate {
+
     private var itemIndexSubject = BehaviorSubject<Int>(value: 0)
-    private var flowSubject = PublishSubject<Flow>()
     
-    public var selectedItemIndex: Observable<Int> {
-        return itemIndexSubject.asObservable()
+    public var flowsArray: [Flow] = []
+    
+    override open func viewDidLoad() {
+        super.viewDidLoad()
     }
-    
-    public var selectedFlow: Observable<Flow> {
-        return flowSubject.asObservable()
-    }
-    
-    internal var previousIndex: Int = 0
-    
-    /// set view your flows
-    public var flowsArray: [TabBarFlow] = []
     
     override open var selectedViewController: UIViewController? {
         willSet {
             if let vc = newValue, let index = self.viewControllers?.firstIndex(of:vc) {
                 itemIndexSubject.onNext(index)
-                if let flowVC = newValue as? Injecting, let flow = flowVC.flow {
-                    flowSubject.onNext(flow)
-                }
             }
         }
         didSet {}
     }
     
-    public init(flows: [Elements]) {
+    public init(flows: [Flow]) {
         flowsArray = flows
         super.init(nibName: nil, bundle: nil)
         setFlow(flows: flows)
         delegate = self
     }
     
-    public init(navigationFlows: [Elements]) {
-        super.init(nibName: nil, bundle: nil)
-        delegate = self
-    }
-    
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override open func viewDidLoad() {
-        super.viewDidLoad()
     }
     
     open func selectFlow(_ flow: Int) {
@@ -84,18 +62,18 @@ open class TabBarDirection<Elements: Flow>: UITabBarController, UITabBarControll
 
 }
 
-extension TabBarDirection {
-    private func setFlow(flows: [TabBarFlow]) {
+extension RxTabBarController {
+    private func setFlow(flows: [Flow]) {
         self.viewControllers = []
         var tempFlows: [UIViewController] = []
         for flow in flows {
             if let vc = flow.flow {
                 if let nav = vc as? UINavigationController {
-                    if let navFlow = nav.viewControllers.first as? FlowViewController {
+                    if let navFlow = nav.viewControllers.first as? RxFlowController {
                         navFlow.flow = flow
                     }
                     tempFlows.append(vc)
-                } else if let flowVC = vc as? FlowViewController {
+                } else if let flowVC = vc as? RxFlowController {
                     flowVC.flow = flow
                     tempFlows.append(vc)
                 }
