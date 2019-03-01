@@ -27,7 +27,7 @@ public class RxCoordinator: NSObject, RxDirection {
         return tabBarController.viewControllers as? [UINavigationController] ?? []
     }
     
-    public var router: PublishRelay<(DirectionRoute, [RxCoordinatorMiddleware])> = PublishRelay<(DirectionRoute, [RxCoordinatorMiddleware])>()
+    public var router: PublishRelay<(DirectionRoute, [RxCoordinatorMiddleware]?)> = PublishRelay<(DirectionRoute, [RxCoordinatorMiddleware]?)>()
     
     public init(navigationController: UINavigationController, tabBarController: RxTabBarController, builder: FlowFactory) {
         self.navigationController = navigationController
@@ -144,8 +144,10 @@ extension RxCoordinator {
             .subscribe(onNext: { [weak self] routerEvent in
                 guard let `self` = self else { return }
                 var event = routerEvent.0
-                for middleware in routerEvent.1 {
-                    event = middleware.perfom(event)
+                if let middlewares = routerEvent.1 {
+                    for middleware in middlewares {
+                        event = middleware.perfom(event)
+                    }
                 }
                 self.transition(route: event)
             },
@@ -158,7 +160,7 @@ extension RxCoordinator {
 
 public extension Reactive where Base: RxCoordinator {
     
-    var route: Binder<(DirectionRoute, [RxCoordinatorMiddleware])> {
+    var route: Binder<(DirectionRoute, [RxCoordinatorMiddleware]?)> {
         return Binder(self.base) { coordinator, flow in
             coordinator.router.accept(flow)
         }

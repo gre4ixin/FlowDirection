@@ -19,5 +19,5 @@ public enum DirectionRoute {
 }
 
 public protocol RxDirection: class {
-    var router: PublishRelay<(DirectionRoute, [RxCoordinatorMiddleware])> { get }
+    var router: PublishRelay<(DirectionRoute, [RxCoordinatorMiddleware]?)> { get }
 }
