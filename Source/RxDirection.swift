@@ -15,6 +15,7 @@ public enum DirectionRoute {
     case pop(animated: Bool)
     case toRoot(animated: Bool)
     case replace(flow: Flow, animated: Bool)
+    case dismiss(animated: Bool)
     case none
 }
 

@@ -61,17 +61,9 @@ public class RxCoordinator: NSObject, RxDirection {
                                                                       completion: nil)
     }
     
-    public func dismiss(_ animated: Bool) -> Observable<Void> {
-        let completionObservable: Observable<Void> = .create { [unowned self] observer in
-            self.navigationControllers[self.tabBarController.selectedIndex]
-                .dismiss(animated: animated, completion: {
-                    observer.onNext(())
-                    observer.onCompleted()
-                })
-            return Disposables.create()
-        }
-        
-        return completionObservable
+    public func dismiss(_ animated: Bool) {
+        self.navigationControllers[self.tabBarController.selectedIndex]
+            .dismiss(animated: animated, completion: nil)
     }
     
     public func popViewController(animated: Bool) {
@@ -96,11 +88,12 @@ public class RxCoordinator: NSObject, RxDirection {
                 return
             }
             let vc = unwrapSelf.builder.makeViewController(with: viewFlow)
-            if let _vc = vc as? RxFlowController {
-                _vc.flow = viewFlow
-                _vc.rxcoordinator = self
-            }
-            unwrapSelf.navigationController.pushViewController(vc, animated: animated)
+//            if let _vc = vc as? RxFlowController {
+//                _vc.flow = viewFlow
+//                _vc.rxcoordinator = self
+//            }
+            let viewController = unwrapSelf.injection(flow: viewFlow, viewController: vc)
+            unwrapSelf.navigationController.pushViewController(viewController, animated: animated)
         }
     }
     
@@ -130,9 +123,19 @@ public class RxCoordinator: NSObject, RxDirection {
             _ = pushOn(viewFlow: flow, animated: animated, hidesTabBar: hideTabBar)
         case .replace(flow: let flow, animated: let animated):
             presentOnMainNavigationController(flow, animated: animated)
+        case .dismiss(animated: let animated):
+            dismiss(animated)
         case .none:
             break
         }
+    }
+    
+    private func injection(flow: Flow, viewController: UIViewController) -> UIViewController {
+        if let vc = viewController as? RxFlowController {
+            vc.flow = flow
+            vc.rxcoordinator = self
+        }
+        return viewController
     }
     
 }
