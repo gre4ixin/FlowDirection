@@ -19,8 +19,8 @@ public class RxCoordinator: NSObject, RxDirection {
     private let tabBarController: RxTabBarController
     private let builder: FlowFactory
     private var bag = DisposeBag()
-    public var willNavigate: PublishSubject<(DirectionRoute, Flow)> = PublishSubject<(DirectionRoute, Flow)>()
-    public var didNavigate: PublishSubject<(DirectionRoute, Flow)> = PublishSubject<(DirectionRoute, Flow)>()
+    public var willNavigate: PublishSubject<(DirectionRoute, Flow?)> = PublishSubject<(DirectionRoute, Flow?)>()
+    public var didNavigate: PublishSubject<(DirectionRoute, Flow?)> = PublishSubject<(DirectionRoute, Flow?)>()
     
     /// array of navigation controllers
     private var navigationControllers: [UINavigationController] {
@@ -110,17 +110,31 @@ public class RxCoordinator: NSObject, RxDirection {
     private func transition(route: DirectionRoute) {
         switch route {
         case .pop(animated: let animated):
+            willNavigate.onNext((route, nil))
             popNavigation(animated: animated)
+            if let vc = topViewController as? RxFlowViewController {
+                didNavigate.onNext((route, vc.flow))
+            } else {
+                didNavigate.onNext((route, nil))
+            }
         case .toRoot(animated: let animated):
             toRootViewController(animated)
         case .present(flow: let flow, animated: let animated):
+            willNavigate.onNext((route, flow))
             _ = present(flow, animated: animated)
+            didNavigate.onNext((route, flow))
         case .push(flow: let flow, animated: let animated, hideTab: let hideTabBar):
+            willNavigate.onNext((route, flow))
             _ = pushOn(viewFlow: flow, animated: animated, hidesTabBar: hideTabBar)
+            didNavigate.onNext((route, flow))
         case .presentOnMain(flow: let flow, animated: let animated):
+            willNavigate.onNext((route, flow))
             presentOnMainNavigationController(flow, animated: animated)
+            didNavigate.onNext((route, flow))
         case .dismiss(animated: let animated):
+            willNavigate.onNext((route, nil))
             dismiss(animated)
+            didNavigate.onNext((route, nil))
         case .none:
             break
         }
@@ -165,11 +179,11 @@ public extension Reactive where Base: RxCoordinator {
         }
     }
     
-    var willNavigate: Observable<(DirectionRoute, Flow)> {
+    var willNavigate: Observable<(DirectionRoute, Flow?)> {
         return self.base.willNavigate.asObservable()
     }
     
-    var didNavigate: Observable<(DirectionRoute, Flow)> {
+    var didNavigate: Observable<(DirectionRoute, Flow?)> {
         return self.base.didNavigate.asObservable()
     }
     
