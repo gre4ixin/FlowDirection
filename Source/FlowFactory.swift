@@ -9,12 +9,9 @@
 import Foundation
 
 public protocol FlowFactory {
-    @discardableResult
     /// method will called for create your module
     ///
     /// - Parameter flow: module type
     /// - Returns: view controller
-    func makeViewController1<T: Flow>(with flow: T) -> UIViewController
-    
     func makeViewController(with flow: Flow) -> UIViewController
 }
