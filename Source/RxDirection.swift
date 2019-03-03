@@ -14,7 +14,7 @@ public enum DirectionRoute {
     case present(flow: Flow, animated: Bool)
     case pop(animated: Bool)
     case toRoot(animated: Bool)
-    case replace(flow: Flow, animated: Bool)
+    case presentOnMain(flow: Flow, animated: Bool)
     case dismiss(animated: Bool)
     case none
 }

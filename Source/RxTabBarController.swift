@@ -11,7 +11,7 @@ import RxSwift
 
 open class RxTabBarController: UITabBarController, UITabBarControllerDelegate {
 
-    private var itemIndexSubject = BehaviorSubject<Int>(value: 0)
+    public var itemIndexSubject = BehaviorSubject<Int>(value: 0)
     
     public var flowsArray: [Flow] = []
     

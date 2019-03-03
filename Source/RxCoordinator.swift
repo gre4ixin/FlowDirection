@@ -88,10 +88,6 @@ public class RxCoordinator: NSObject, RxDirection {
                 return
             }
             let vc = unwrapSelf.builder.makeViewController(with: viewFlow)
-//            if let _vc = vc as? RxFlowController {
-//                _vc.flow = viewFlow
-//                _vc.rxcoordinator = self
-//            }
             let viewController = unwrapSelf.injection(flow: viewFlow, viewController: vc)
             unwrapSelf.navigationController.pushViewController(viewController, animated: animated)
         }
@@ -121,7 +117,7 @@ public class RxCoordinator: NSObject, RxDirection {
             _ = present(flow, animated: animated)
         case .push(flow: let flow, animated: let animated, hideTab: let hideTabBar):
             _ = pushOn(viewFlow: flow, animated: animated, hidesTabBar: hideTabBar)
-        case .replace(flow: let flow, animated: let animated):
+        case .presentOnMain(flow: let flow, animated: let animated):
             presentOnMainNavigationController(flow, animated: animated)
         case .dismiss(animated: let animated):
             dismiss(animated)
