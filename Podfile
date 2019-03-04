@@ -9,3 +9,10 @@ target 'FlowDirection' do
 	pod 'RxCocoa'
 
 end
+
+target 'FlowDirectionExample' do
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'SnapKit'
+  pod 'FlowDirection'
+end
