@@ -2,7 +2,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "FlowDirection"
-  spec.version      = "0.0.4"
+  spec.version      = "0.0.5"
   spec.summary      = "App router"
   spec.description  = "coordinate navigation"
 
