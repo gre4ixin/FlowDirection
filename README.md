@@ -18,3 +18,150 @@ pod 'FlowDirection'
 ```
 pod install
 ```
+
+### 👨🏼‍💻 How to use?
+
+#### In app delegate setup `RxCoordinator` and `RxTabBarController`
+
+```swift
+import RxSwift
+import FlowDirection
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    let disposeBag = DisposeBag()
+    var window: UIWindow?
+    var coordinator: RxCoordinator?
+    let bag = DisposeBag()
+    let factory: FlowFactory = ViewControllerFactory()
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        let tab = RxTabBarController(flows: [ViewControllerType.tabOne, ViewControllerType.tabTwo])
+        let nav = UINavigationController(rootViewController: tab)
+        coordinator = RxCoordinator(navigationController: nav, tabBarController: tab, builder: factory)
+        // optional
+        coordinator?.rx.willNavigate.subscribe(onNext: { (direction) in
+            if let flow = direction.1 {
+                print("direction -> \(direction.0) flow -> \(flow)")
+            } else {
+                print("direction -> \(direction.0)")
+            }
+        }).disposed(by: bag)
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = nav
+        window?.makeKeyAndVisible()
+        
+        return true
+    }
+}
+```
+
+#### Create new file `ViewControllerFactory` (you can you other name), my factory look like this 👇🏼
+
+```swift
+
+enum ViewControllerType: Flow {
+    
+    case first
+    case second
+    
+    case tabOne
+    case tabTwo
+    
+    var index: Int? {
+        switch self {
+        case .tabOne:
+            return 0
+        case .tabTwo:
+            return 1
+        default:
+            return nil
+        }
+    }
+    
+    var flow: UIViewController? {
+        switch self {
+        case .tabOne:
+            return UINavigationController(rootViewController: ViewController())
+        case .tabTwo:
+            return UINavigationController(rootViewController: SecondViewController())
+        default:
+            return nil
+        }
+    }
+}
+
+
+class ViewControllerFactory: FlowFactory {
+    func makeViewController(with flow: Flow) -> UIViewController {
+        guard let flow = flow as? ViewControllerType else {
+            fatalError()
+        }
+        switch flow {
+        case .first:
+            return ViewController()
+        case .second:
+            return SecondViewController()
+        default:
+            return ViewController()
+        }
+    }
+}
+
+```
+
+#### In ViewController you have to inheritance from `RxFlowViewController`
+
+```swift
+import RxSwift
+import RxCocoa
+import SnapKit
+import FlowDirection
+
+class ViewController: RxFlowViewController {
+
+    let label = UILabel()
+    let button = UIButton()
+    let bag = DisposeBag()
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = UIColor.blue
+        setup()
+    }
+    
+    func setup() {
+        view.addSubview(label)
+        label.snp.makeConstraints { (make) in
+            make.left.equalToSuperview().offset(16)
+            make.right.equalToSuperview().offset(-16)
+            make.centerY.equalToSuperview()
+        }
+        label.text = "ТЕСТ"
+        
+        view.addSubview(button)
+        button.snp.makeConstraints { (make) in
+            make.left.equalToSuperview().offset(16)
+            make.right.equalToSuperview().offset(-16)
+            make.centerY.equalToSuperview().offset(50)
+        }
+        button.setTitle("Переход", for: .normal)
+        button.setTitleColor(UIColor.purple, for: .normal)
+        button.rx.tap.map { (_) -> (DirectionRoute, [RxCoordinatorMiddleware]?) in
+            return (DirectionRoute.present(flow: ViewControllerType.second, animated: true), .none)
+        }
+            .bind(to: rxcoordinator!.rx.route)
+            .disposed(by: bag)
+    }
+    
+}
+```
