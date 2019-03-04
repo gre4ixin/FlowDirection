@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let tab = RxTabBarController(flows: [ViewControllerType.tabOne, ViewControllerType.tabTwo])
         let nav = UINavigationController(rootViewController: tab)
-        coordinator = RxCoordinator(navigationController: nav, tabBarController: tab, builder: factory)
+        coordinator = RxCoordinator(navigationController: nav, tabBarController: tab, factory: factory)
         // optional
         coordinator?.rx.willNavigate.subscribe(onNext: { (direction) in
             if let flow = direction.1 {
