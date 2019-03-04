@@ -17,7 +17,7 @@ public class RxCoordinator: NSObject, RxDirection {
     
     private let navigationController: UINavigationController
     private let tabBarController: RxTabBarController
-    private let builder: FlowFactory
+    private let factory: FlowFactory
     private var bag = DisposeBag()
     public var willNavigate: PublishSubject<(DirectionRoute, Flow?)> = PublishSubject<(DirectionRoute, Flow?)>()
     public var didNavigate: PublishSubject<(DirectionRoute, Flow?)> = PublishSubject<(DirectionRoute, Flow?)>()
@@ -29,10 +29,10 @@ public class RxCoordinator: NSObject, RxDirection {
     
     public var router: PublishRelay<(DirectionRoute, [RxCoordinatorMiddleware]?)> = PublishRelay<(DirectionRoute, [RxCoordinatorMiddleware]?)>()
     
-    public init(navigationController: UINavigationController, tabBarController: RxTabBarController, builder: FlowFactory) {
+    public init(navigationController: UINavigationController, tabBarController: RxTabBarController, factory: FlowFactory) {
         self.navigationController = navigationController
         self.tabBarController = tabBarController
-        self.builder = builder
+        self.factory = factory
         super.init()
         self.tabBarController.viewControllers?.forEach({ (controller) in
             injectingSelf(controller)
@@ -41,7 +41,7 @@ public class RxCoordinator: NSObject, RxDirection {
     }
     
     public func pushOn(viewFlow: Flow, animated: Bool, hidesTabBar: Bool) {
-        let viewController = builder.makeViewController(with: viewFlow)
+        let viewController = factory.makeViewController(with: viewFlow)
         if let vc = viewController as? RxFlowController {
             vc.flow = viewFlow
             vc.rxcoordinator = self
@@ -51,7 +51,7 @@ public class RxCoordinator: NSObject, RxDirection {
     }
     
     public func present(_ viewFlow: Flow, animated: Bool) {
-        let viewController = builder.makeViewController(with: viewFlow)
+        let viewController = factory.makeViewController(with: viewFlow)
         if let inj = viewController as? RxFlowController {
             inj.rxcoordinator = self
             inj.flow = viewFlow
@@ -87,7 +87,7 @@ public class RxCoordinator: NSObject, RxDirection {
             guard let unwrapSelf = self else {
                 return
             }
-            let vc = unwrapSelf.builder.makeViewController(with: viewFlow)
+            let vc = unwrapSelf.factory.makeViewController(with: viewFlow)
             let viewController = unwrapSelf.injection(flow: viewFlow, viewController: vc)
             unwrapSelf.navigationController.pushViewController(viewController, animated: animated)
         }
