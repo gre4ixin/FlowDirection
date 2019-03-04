@@ -111,7 +111,7 @@ class ViewControllerFactory: FlowFactory {
 
 ```
 
-#### In ViewController you have to inheritance from `RxFlowViewController`
+##### In ViewController you have to inheritance from `RxFlowViewController`
 
 ```swift
 import RxSwift
@@ -146,7 +146,7 @@ class ViewController: RxFlowViewController {
             make.right.equalToSuperview().offset(-16)
             make.centerY.equalToSuperview()
         }
-        label.text = "ТЕСТ"
+        label.text = "TEST"
         
         view.addSubview(button)
         button.snp.makeConstraints { (make) in
@@ -154,7 +154,7 @@ class ViewController: RxFlowViewController {
             make.right.equalToSuperview().offset(-16)
             make.centerY.equalToSuperview().offset(50)
         }
-        button.setTitle("Переход", for: .normal)
+        button.setTitle("Transition", for: .normal)
         button.setTitleColor(UIColor.purple, for: .normal)
         button.rx.tap.map { (_) -> (DirectionRoute, [RxCoordinatorMiddleware]?) in
             return (DirectionRoute.present(flow: ViewControllerType.second, animated: true), .none)
@@ -164,4 +164,32 @@ class ViewController: RxFlowViewController {
     }
     
 }
+```
+
+##### And that's all
+
+#### Middleware
+
+##### You can use middleware for processing your navigation command, it's very simple too. Create new file, create class 
+
+```swift
+class DeniedMiddleware: RxCoordinatorMiddleware {
+    func perfom(_ route: DirectionRoute) -> DirectionRoute {
+        switch route {
+        case .push(flow: _, animated: _, hideTab: _):
+            return .present(flow: ViewControllerType.second, animated: true)
+        default:
+            return .push(flow: ViewControllerType.first, animated: true, hideTab: false)
+        }
+    }
+}
+```
+
+##### Now, you have to add this middleware to DirectionRoute, return to your ViewController and change code in `map` function.
+
+```swift
+button.rx.tap.map { (_) -> (DirectionRoute, [RxCoordinatorMiddleware]?) in
+            let mid = DeniedMiddleware()
+            return (DirectionRoute.present(flow: ViewControllerType.second, animated: true), [mid])
+}.bind(to: rxcoordinator!.rx.route)
 ```
