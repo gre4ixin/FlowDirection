@@ -189,7 +189,7 @@ class DeniedMiddleware: RxCoordinatorMiddleware {
 
 ```swift
 button.rx.tap.map { (_) -> (DirectionRoute, [RxCoordinatorMiddleware]?) in
-            let mid = DeniedMiddleware()
-            return (DirectionRoute.present(flow: ViewControllerType.second, animated: true), [mid])
+    let mid = DeniedMiddleware()
+    return (DirectionRoute.present(flow: ViewControllerType.second, animated: true), [mid])
 }.bind(to: rxcoordinator!.rx.route)
 ```
