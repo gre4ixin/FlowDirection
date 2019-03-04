@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>RxCoordinator Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/RxCoordinator" class="dashAnchor"></a>
+    <a title="RxCoordinator Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">FlowDirection Docs</a> (16% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">FlowDirection Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        RxCoordinator Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/RxCoordinator.html">RxCoordinator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RxFlowViewController.html">RxFlowViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RxTabBarController.html">RxTabBarController</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/DirectionRoute.html">DirectionRoute</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Reactive.html">Reactive</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/Flow.html">Flow</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/FlowFactory.html">FlowFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/RxCoordinatorMiddleware.html">RxCoordinatorMiddleware</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/RxDirection.html">RxDirection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/RxFlowController.html">RxFlowController</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>RxCoordinator</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">RxCoordinator</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt"><a href="../Protocols/RxDirection.html">RxDirection</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13FlowDirection13RxCoordinatorC17topViewControllerSo06UIViewG0CSgvp"></a>
+                    <a name="//apple_ref/swift/Property/topViewController" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13FlowDirection13RxCoordinatorC17topViewControllerSo06UIViewG0CSgvp">topViewController</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">topViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/"></a>
+                    <a name="//apple_ref/swift/Property/willNavigate" class="dashAnchor"></a>
+                    <a class="token" href="#/">willNavigate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">willNavigate</span><span class="p">:</span> <span class="kt">PublishSubject</span><span class="o">&lt;</span><span class="p">(</span><span class="kt"><a href="../Enums/DirectionRoute.html">DirectionRoute</a></span><span class="p">,</span> <span class="kt"><a href="../Protocols/Flow.html">Flow</a></span><span class="p">?)</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/"></a>
+                    <a name="//apple_ref/swift/Property/didNavigate" class="dashAnchor"></a>
+                    <a class="token" href="#/">didNavigate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">didNavigate</span><span class="p">:</span> <span class="kt">PublishSubject</span><span class="o">&lt;</span><span class="p">(</span><span class="kt"><a href="../Enums/DirectionRoute.html">DirectionRoute</a></span><span class="p">,</span> <span class="kt"><a href="../Protocols/Flow.html">Flow</a></span><span class="p">?)</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/"></a>
+                    <a name="//apple_ref/swift/Property/router" class="dashAnchor"></a>
+                    <a class="token" href="#/">router</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">router</span><span class="p">:</span> <span class="kt">PublishRelay</span><span class="o">&lt;</span><span class="p">(</span><span class="kt"><a href="../Enums/DirectionRoute.html">DirectionRoute</a></span><span class="p">,</span> <span class="p">[</span><span class="kt"><a href="../Protocols/RxCoordinatorMiddleware.html">RxCoordinatorMiddleware</a></span><span class="p">]?)</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13FlowDirection13RxCoordinatorC20navigationController06tabBarF07factoryACSo012UINavigationF0C_AA0c3TabhF0CAA0A7Factory_ptcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(navigationController:tabBarController:factory:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13FlowDirection13RxCoordinatorC20navigationController06tabBarF07factoryACSo012UINavigationF0C_AA0c3TabhF0CAA0A7Factory_ptcfc">init(navigationController:tabBarController:factory:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">navigationController</span><span class="p">:</span> <span class="kt">UINavigationController</span><span class="p">,</span> <span class="nv">tabBarController</span><span class="p">:</span> <span class="kt"><a href="../Classes/RxTabBarController.html">RxTabBarController</a></span><span class="p">,</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt"><a href="../Protocols/FlowFactory.html">FlowFactory</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13FlowDirection13RxCoordinatorC6pushOn04viewA08animated11hidesTabBaryAA0A0_p_S2btF"></a>
+                    <a name="//apple_ref/swift/Method/pushOn(viewFlow:animated:hidesTabBar:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13FlowDirection13RxCoordinatorC6pushOn04viewA08animated11hidesTabBaryAA0A0_p_S2btF">pushOn(viewFlow:animated:hidesTabBar:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">pushOn</span><span class="p">(</span><span class="nv">viewFlow</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Flow.html">Flow</a></span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">hidesTabBar</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13FlowDirection13RxCoordinatorC7present_8animatedyAA0A0_p_SbtF"></a>
+                    <a name="//apple_ref/swift/Method/present(_:animated:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13FlowDirection13RxCoordinatorC7present_8animatedyAA0A0_p_SbtF">present(_:animated:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">present</span><span class="p">(</span><span class="n">_</span> <span class="nv">viewFlow</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Flow.html">Flow</a></span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13FlowDirection13RxCoordinatorC7dismissyySbF"></a>
+                    <a name="//apple_ref/swift/Method/dismiss(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13FlowDirection13RxCoordinatorC7dismissyySbF">dismiss(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">dismiss</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13FlowDirection13RxCoordinatorC17popViewController8animatedySb_tF"></a>
+                    <a name="//apple_ref/swift/Method/popViewController(animated:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13FlowDirection13RxCoordinatorC17popViewController8animatedySb_tF">popViewController(animated:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">popViewController</span><span class="p">(</span><span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13FlowDirection13RxCoordinatorC13popNavigation8animatedySb_tF"></a>
+                    <a name="//apple_ref/swift/Method/popNavigation(animated:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13FlowDirection13RxCoordinatorC13popNavigation8animatedySb_tF">popNavigation(animated:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">popNavigation</span><span class="p">(</span><span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13FlowDirection13RxCoordinatorC25popToCallerViewController_8animatedySo06UIViewI0C_SbtF"></a>
+                    <a name="//apple_ref/swift/Method/popToCallerViewController(_:animated:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13FlowDirection13RxCoordinatorC25popToCallerViewController_8animatedySo06UIViewI0C_SbtF">popToCallerViewController(_:animated:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">popToCallerViewController</span><span class="p">(</span><span class="n">_</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13FlowDirection13RxCoordinatorC33presentOnMainNavigationController_8animatedyAA0A0_p_SbtF"></a>
+                    <a name="//apple_ref/swift/Method/presentOnMainNavigationController(_:animated:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13FlowDirection13RxCoordinatorC33presentOnMainNavigationController_8animatedyAA0A0_p_SbtF">presentOnMainNavigationController(_:animated:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">presentOnMainNavigationController</span><span class="p">(</span><span class="n">_</span> <span class="nv">viewFlow</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Flow.html">Flow</a></span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13FlowDirection13RxCoordinatorC7showTab4flowyAA0A0_p_tF"></a>
+                    <a name="//apple_ref/swift/Method/showTab(flow:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13FlowDirection13RxCoordinatorC7showTab4flowyAA0A0_p_tF">showTab(flow:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">showTab</span><span class="p">(</span><span class="nv">flow</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Flow.html">Flow</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13FlowDirection13RxCoordinatorC7showTab5indexySi_tF"></a>
+                    <a name="//apple_ref/swift/Method/showTab(index:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13FlowDirection13RxCoordinatorC7showTab5indexySi_tF">showTab(index:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">showTab</span><span class="p">(</span><span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13FlowDirection13RxCoordinatorC20toRootViewControlleryySbF"></a>
+                    <a name="//apple_ref/swift/Method/toRootViewController(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13FlowDirection13RxCoordinatorC20toRootViewControlleryySbF">toRootViewController(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">toRootViewController</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://github.com/gre4ixin/FlowDirection" target="_blank" rel="external">Pavel</a>. All rights reserved. (Last updated: 2019-03-04)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

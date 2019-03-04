@@ -13,7 +13,7 @@
     <a title="FlowDirection  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">FlowDirection Docs</a> (61% documented)</p>
+        <p><a href="index.html">FlowDirection Docs</a> (16% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -30,16 +30,13 @@
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/Broadcaster.html">Broadcaster</a>
+                <a href="Classes/RxCoordinator.html">RxCoordinator</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/Coordiator.html">Coordiator</a>
+                <a href="Classes/RxFlowViewController.html">RxFlowViewController</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/FlowViewController.html">FlowViewController</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/TabBarDirection.html">TabBarDirection</a>
+                <a href="Classes/RxTabBarController.html">RxTabBarController</a>
               </li>
             </ul>
           </li>
@@ -47,10 +44,7 @@
             <a href="Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Enums/DirectionEvent.html">DirectionEvent</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Enums/Resolved.html">Resolved</a>
+                <a href="Enums/DirectionRoute.html">DirectionRoute</a>
               </li>
             </ul>
           </li>
@@ -66,33 +60,19 @@
             <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Protocols/Broadcast.html">Broadcast</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/CoordinatorMiddleware.html">CoordinatorMiddleware</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/Direction.html">Direction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Protocols/Flow.html">Flow</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/FlowFactory.html">FlowFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/Injecting.html">Injecting</a>
+                <a href="Protocols/RxCoordinatorMiddleware.html">RxCoordinatorMiddleware</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/Middleware.html">Middleware</a>
+                <a href="Protocols/RxDirection.html">RxDirection</a>
               </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="Structs.html">Structures</a>
-            <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Structs/None.html">None</a>
+                <a href="Protocols/RxFlowController.html">RxFlowController</a>
               </li>
             </ul>
           </li>
@@ -104,10 +84,146 @@
             
             <h1 id='flowdirection' class='heading'>FlowDirection</h1>
 
+<p align="center">
+  <img alt="Platform" src="https://img.shields.io/badge/platform-iOS-orange.svg">
+  <img alt="Swift" src="https://img.shields.io/badge/Swift-4.2-orange.svg">
+  <img alt="License" src="https://img.shields.io/badge/LICENSE-MIT-blue.svg">
+  <img alt="Version" src="https://img.shields.io/badge/Version-0.0.4-blue.svg">
+</p>
+<h4 id='implementation-pattern-coordinator-with-rxswift' class='heading'>Implementation pattern coordinator with RxSwift</h4>
+<h3 id='installation' class='heading'>📲 Installation</h3>
+<h5 id='cocoapods' class='heading'>Cocoapods</h5>
+<pre class="highlight plaintext"><code>pod 'FlowDirection'
+</code></pre>
+<pre class="highlight plaintext"><code>pod install
+</code></pre>
+<h3 id='how-to-use' class='heading'>👨🏼‍💻 How to use?</h3>
+<h4 id='in-app-delegate-setup-code-rxcoordinator-code-and-code-rxtabbarcontroller-code' class='heading'>In app delegate setup <code><a href="Classes/RxCoordinator.html">RxCoordinator</a></code> and <code><a href="Classes/RxTabBarController.html">RxTabBarController</a></code></h4>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">RxSwift</span>
+<span class="kd">import</span> <span class="kt">FlowDirection</span>
+<span class="kd">@UIApplicationMain</span>
+<span class="kd">class</span> <span class="kt">AppDelegate</span><span class="p">:</span> <span class="kt">UIResponder</span><span class="p">,</span> <span class="kt">UIApplicationDelegate</span> <span class="p">{</span>
+
+    <span class="k">let</span> <span class="nv">disposeBag</span> <span class="o">=</span> <span class="kt">DisposeBag</span><span class="p">()</span>
+    <span class="k">var</span> <span class="nv">window</span><span class="p">:</span> <span class="kt">UIWindow</span><span class="p">?</span>
+    <span class="k">var</span> <span class="nv">coordinator</span><span class="p">:</span> <span class="kt">RxCoordinator</span><span class="p">?</span>
+    <span class="k">let</span> <span class="nv">bag</span> <span class="o">=</span> <span class="kt">DisposeBag</span><span class="p">()</span>
+    <span class="k">let</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">FlowFactory</span> <span class="o">=</span> <span class="kt">ViewControllerFactory</span><span class="p">()</span>
+
+    <span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="n">_</span> <span class="nv">application</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="nv">launchOptions</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIApplication</span><span class="o">.</span><span class="kt">LaunchOptionsKey</span><span class="p">:</span> <span class="kt">Any</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+
+        <span class="k">let</span> <span class="nv">tab</span> <span class="o">=</span> <span class="kt">RxTabBarController</span><span class="p">(</span><span class="nv">flows</span><span class="p">:</span> <span class="p">[</span><span class="kt">ViewControllerType</span><span class="o">.</span><span class="n">tabOne</span><span class="p">,</span> <span class="kt">ViewControllerType</span><span class="o">.</span><span class="n">tabTwo</span><span class="p">])</span>
+        <span class="k">let</span> <span class="nv">nav</span> <span class="o">=</span> <span class="kt">UINavigationController</span><span class="p">(</span><span class="nv">rootViewController</span><span class="p">:</span> <span class="n">tab</span><span class="p">)</span>
+        <span class="n">coordinator</span> <span class="o">=</span> <span class="kt">RxCoordinator</span><span class="p">(</span><span class="nv">navigationController</span><span class="p">:</span> <span class="n">nav</span><span class="p">,</span> <span class="nv">tabBarController</span><span class="p">:</span> <span class="n">tab</span><span class="p">,</span> <span class="nv">builder</span><span class="p">:</span> <span class="n">factory</span><span class="p">)</span>
+        <span class="c1">// optional</span>
+        <span class="n">coordinator</span><span class="p">?</span><span class="o">.</span><span class="n">rx</span><span class="o">.</span><span class="n">willNavigate</span><span class="o">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="nv">onNext</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="n">direction</span><span class="p">)</span> <span class="k">in</span>
+            <span class="k">if</span> <span class="k">let</span> <span class="nv">flow</span> <span class="o">=</span> <span class="n">direction</span><span class="o">.</span><span class="mi">1</span> <span class="p">{</span>
+                <span class="nf">print</span><span class="p">(</span><span class="s">"direction -&gt; </span><span class="se">\(</span><span class="n">direction</span><span class="o">.</span><span class="mi">0</span><span class="se">)</span><span class="s"> flow -&gt; </span><span class="se">\(</span><span class="n">flow</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="nf">print</span><span class="p">(</span><span class="s">"direction -&gt; </span><span class="se">\(</span><span class="n">direction</span><span class="o">.</span><span class="mi">0</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">})</span><span class="o">.</span><span class="nf">disposed</span><span class="p">(</span><span class="nv">by</span><span class="p">:</span> <span class="n">bag</span><span class="p">)</span>
+        <span class="n">window</span> <span class="o">=</span> <span class="kt">UIWindow</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="kt">UIScreen</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="n">bounds</span><span class="p">)</span>
+        <span class="n">window</span><span class="p">?</span><span class="o">.</span><span class="n">rootViewController</span> <span class="o">=</span> <span class="n">nav</span>
+        <span class="n">window</span><span class="p">?</span><span class="o">.</span><span class="nf">makeKeyAndVisible</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="kc">true</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<h4 id='create-new-file-code-viewcontrollerfactory-code-you-can-you-other-name-my-factory-look-like-this' class='heading'>Create new file <code>ViewControllerFactory</code> (you can you other name), my factory look like this 👇🏼</h4>
+<pre class="highlight swift"><code>
+<span class="kd">enum</span> <span class="kt">ViewControllerType</span><span class="p">:</span> <span class="kt">Flow</span> <span class="p">{</span>
+
+    <span class="k">case</span> <span class="n">first</span>
+    <span class="k">case</span> <span class="n">second</span>
+
+    <span class="k">case</span> <span class="n">tabOne</span>
+    <span class="k">case</span> <span class="n">tabTwo</span>
+
+    <span class="k">var</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="p">{</span>
+        <span class="k">switch</span> <span class="k">self</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nv">tabOne</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nv">tabTwo</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">default</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">nil</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">var</span> <span class="nv">flow</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">?</span> <span class="p">{</span>
+        <span class="k">switch</span> <span class="k">self</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nv">tabOne</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kt">UINavigationController</span><span class="p">(</span><span class="nv">rootViewController</span><span class="p">:</span> <span class="kt">ViewController</span><span class="p">())</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nv">tabTwo</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kt">UINavigationController</span><span class="p">(</span><span class="nv">rootViewController</span><span class="p">:</span> <span class="kt">SecondViewController</span><span class="p">())</span>
+        <span class="k">default</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">nil</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="kd">class</span> <span class="kt">ViewControllerFactory</span><span class="p">:</span> <span class="kt">FlowFactory</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">makeViewController</span><span class="p">(</span><span class="n">with</span> <span class="nv">flow</span><span class="p">:</span> <span class="kt">Flow</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIViewController</span> <span class="p">{</span>
+        <span class="k">guard</span> <span class="k">let</span> <span class="nv">flow</span> <span class="o">=</span> <span class="n">flow</span> <span class="k">as?</span> <span class="kt">ViewControllerType</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nf">fatalError</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="k">switch</span> <span class="n">flow</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nv">first</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kt">ViewController</span><span class="p">()</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nv">second</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kt">SecondViewController</span><span class="p">()</span>
+        <span class="k">default</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kt">ViewController</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre>
+<h5 id='in-viewcontroller-you-have-to-inheritance-from-code-rxflowviewcontroller-code' class='heading'>In ViewController you have to inheritance from <code><a href="Classes/RxFlowViewController.html">RxFlowViewController</a></code></h5>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">RxSwift</span>
+<span class="kd">import</span> <span class="kt">RxCocoa</span>
+<span class="kd">import</span> <span class="kt">FlowDirection</span>
+
+<span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">RxFlowViewController</span> <span class="p">{</span>
+
+  <span class="kd">func</span> <span class="nf">bind</span><span class="p">()</span> <span class="p">{}</span>
+        <span class="n">button</span><span class="o">.</span><span class="n">rx</span><span class="o">.</span><span class="n">tap</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="p">(</span><span class="n">_</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">DirectionRoute</span><span class="p">,</span> <span class="p">[</span><span class="kt">RxCoordinatorMiddleware</span><span class="p">]?)</span> <span class="k">in</span>
+            <span class="nf">return</span> <span class="p">(</span><span class="kt">DirectionRoute</span><span class="o">.</span><span class="nf">present</span><span class="p">(</span><span class="nv">flow</span><span class="p">:</span> <span class="kt">ViewControllerType</span><span class="o">.</span><span class="n">second</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">),</span> <span class="o">.</span><span class="k">none</span><span class="p">)</span>
+        <span class="p">}</span>
+            <span class="o">.</span><span class="nf">bind</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="n">rxcoordinator</span><span class="o">!.</span><span class="n">rx</span><span class="o">.</span><span class="n">route</span><span class="p">)</span>
+            <span class="o">.</span><span class="nf">disposed</span><span class="p">(</span><span class="nv">by</span><span class="p">:</span> <span class="n">bag</span><span class="p">)</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre>
+<h5 id='and-that-39-s-all' class='heading'>And that&rsquo;s all</h5>
+<h4 id='middleware' class='heading'>Middleware</h4>
+<h5 id='you-can-use-middleware-for-processing-your-navigation-command-it-39-s-very-simple-too-create-new-file-create-class' class='heading'>You can use middleware for processing your navigation command, it&rsquo;s very simple too. Create new file, create class</h5>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">DeniedMiddleware</span><span class="p">:</span> <span class="kt">RxCoordinatorMiddleware</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">perfom</span><span class="p">(</span><span class="n">_</span> <span class="nv">route</span><span class="p">:</span> <span class="kt">DirectionRoute</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">DirectionRoute</span> <span class="p">{</span>
+        <span class="k">switch</span> <span class="n">route</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nf">push</span><span class="p">(</span><span class="nv">flow</span><span class="p">:</span> <span class="n">_</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="n">_</span><span class="p">,</span> <span class="nv">hideTab</span><span class="p">:</span> <span class="n">_</span><span class="p">):</span>
+            <span class="k">return</span> <span class="o">.</span><span class="nf">present</span><span class="p">(</span><span class="nv">flow</span><span class="p">:</span> <span class="kt">ViewControllerType</span><span class="o">.</span><span class="n">second</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+        <span class="k">default</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">.</span><span class="nf">push</span><span class="p">(</span><span class="nv">flow</span><span class="p">:</span> <span class="kt">ViewControllerType</span><span class="o">.</span><span class="n">first</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">hideTab</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<h5 id='now-you-have-to-add-this-middleware-to-directionroute-return-to-your-viewcontroller-and-change-code-in-code-map-code-function' class='heading'>Now, you have to add this middleware to DirectionRoute, return to your ViewController and change code in <code>map</code> function.</h5>
+<pre class="highlight swift"><code><span class="n">button</span><span class="o">.</span><span class="n">rx</span><span class="o">.</span><span class="n">tap</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="p">(</span><span class="n">_</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">DirectionRoute</span><span class="p">,</span> <span class="p">[</span><span class="kt">RxCoordinatorMiddleware</span><span class="p">]?)</span> <span class="k">in</span>
+    <span class="k">let</span> <span class="nv">mid</span> <span class="o">=</span> <span class="kt">DeniedMiddleware</span><span class="p">()</span>
+    <span class="nf">return</span> <span class="p">(</span><span class="kt">DirectionRoute</span><span class="o">.</span><span class="nf">present</span><span class="p">(</span><span class="nv">flow</span><span class="p">:</span> <span class="kt">ViewControllerType</span><span class="o">.</span><span class="n">second</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">),</span> <span class="p">[</span><span class="n">mid</span><span class="p">])</span>
+<span class="p">}</span><span class="o">.</span><span class="nf">bind</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="n">rxcoordinator</span><span class="o">!.</span><span class="n">rx</span><span class="o">.</span><span class="n">route</span><span class="p">)</span>
+</code></pre>
+
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://github.com/gre4ixin/FlowDirection.com" target="_blank" rel="external">Pavel</a>. All rights reserved. (Last updated: 2019-02-28)</p>
+          <p>&copy; 2019 <a class="link" href="https://github.com/gre4ixin/FlowDirection" target="_blank" rel="external">Pavel</a>. All rights reserved. (Last updated: 2019-03-04)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

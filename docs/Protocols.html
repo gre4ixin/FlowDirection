@@ -14,7 +14,7 @@
     <a title="Protocols  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">FlowDirection Docs</a> (61% documented)</p>
+        <p><a href="index.html">FlowDirection Docs</a> (16% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -31,16 +31,13 @@
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/Broadcaster.html">Broadcaster</a>
+                <a href="Classes/RxCoordinator.html">RxCoordinator</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/Coordiator.html">Coordiator</a>
+                <a href="Classes/RxFlowViewController.html">RxFlowViewController</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/FlowViewController.html">FlowViewController</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/TabBarDirection.html">TabBarDirection</a>
+                <a href="Classes/RxTabBarController.html">RxTabBarController</a>
               </li>
             </ul>
           </li>
@@ -48,10 +45,7 @@
             <a href="Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Enums/DirectionEvent.html">DirectionEvent</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Enums/Resolved.html">Resolved</a>
+                <a href="Enums/DirectionRoute.html">DirectionRoute</a>
               </li>
             </ul>
           </li>
@@ -67,33 +61,19 @@
             <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Protocols/Broadcast.html">Broadcast</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/CoordinatorMiddleware.html">CoordinatorMiddleware</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/Direction.html">Direction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Protocols/Flow.html">Flow</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/FlowFactory.html">FlowFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/Injecting.html">Injecting</a>
+                <a href="Protocols/RxCoordinatorMiddleware.html">RxCoordinatorMiddleware</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/Middleware.html">Middleware</a>
+                <a href="Protocols/RxDirection.html">RxDirection</a>
               </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="Structs.html">Structures</a>
-            <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Structs/None.html">None</a>
+                <a href="Protocols/RxFlowController.html">RxFlowController</a>
               </li>
             </ul>
           </li>
@@ -107,70 +87,6 @@
 
           </section>
           <section class="section task-group-section">
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13FlowDirection9BroadcastP"></a>
-                    <a name="//apple_ref/swift/Protocol/Broadcast" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13FlowDirection9BroadcastP">Broadcast</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="Protocols/Broadcast.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Broadcast</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13FlowDirection0B0P"></a>
-                    <a name="//apple_ref/swift/Protocol/Direction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13FlowDirection0B0P">Direction</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>the Protocol for the description of the coordinator class</p>
-
-                        <a href="Protocols/Direction.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Direction</span> <span class="p">:</span> <span class="kt">AnyObject</span><span class="p">,</span> <span class="kt"><a href="Protocols/Broadcast.html">Broadcast</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/Middleware.html">Middleware</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
             <div class="task-group">
               <ul>
                 <li class="item">
@@ -240,9 +156,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13FlowDirection9InjectingP"></a>
-                    <a name="//apple_ref/swift/Protocol/Injecting" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13FlowDirection9InjectingP">Injecting</a>
+                    <a name="/s:13FlowDirection23RxCoordinatorMiddlewareP"></a>
+                    <a name="//apple_ref/swift/Protocol/RxCoordinatorMiddleware" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13FlowDirection23RxCoordinatorMiddlewareP">RxCoordinatorMiddleware</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -250,15 +166,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Protocol for injecting Coordinator to modules</p>
+                        <p>middle ware</p>
 
-                        <a href="Protocols/Injecting.html" class="slightly-smaller">See more</a>
+                        <a href="Protocols/RxCoordinatorMiddleware.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Injecting</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">RxCoordinatorMiddleware</span></code></pre>
 
                         </div>
                       </div>
@@ -272,9 +188,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13FlowDirection21CoordinatorMiddlewareP"></a>
-                    <a name="//apple_ref/swift/Protocol/CoordinatorMiddleware" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13FlowDirection21CoordinatorMiddlewareP">CoordinatorMiddleware</a>
+                    <a name="/s:13FlowDirection02RxB0P"></a>
+                    <a name="//apple_ref/swift/Protocol/RxDirection" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13FlowDirection02RxB0P">RxDirection</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -284,13 +200,13 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
-                        <a href="Protocols/CoordinatorMiddleware.html" class="slightly-smaller">See more</a>
+                        <a href="Protocols/RxDirection.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">CoordinatorMiddleware</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">RxDirection</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
 
                         </div>
                       </div>
@@ -300,20 +216,13 @@
               </ul>
             </div>
             <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Default%20implementation"></a>
-                <a name="//apple_ref/swift/Section/Default implementation" class="dashAnchor"></a>
-                <a href="#/Default%20implementation">
-                  <h3 class="section-name">Default implementation</h3>
-                </a>
-              </div>
               <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13FlowDirection10MiddlewareP"></a>
-                    <a name="//apple_ref/swift/Protocol/Middleware" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13FlowDirection10MiddlewareP">Middleware</a>
+                    <a name="/s:13FlowDirection02RxA10ControllerP"></a>
+                    <a name="//apple_ref/swift/Protocol/RxFlowController" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13FlowDirection02RxA10ControllerP">RxFlowController</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -323,13 +232,13 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
-                        <a href="Protocols/Middleware.html" class="slightly-smaller">See more</a>
+                        <a href="Protocols/RxFlowController.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Middleware</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">RxFlowController</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
 
                         </div>
                       </div>
@@ -341,7 +250,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://github.com/gre4ixin/FlowDirection.com" target="_blank" rel="external">Pavel</a>. All rights reserved. (Last updated: 2019-02-28)</p>
+          <p>&copy; 2019 <a class="link" href="https://github.com/gre4ixin/FlowDirection" target="_blank" rel="external">Pavel</a>. All rights reserved. (Last updated: 2019-03-04)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
