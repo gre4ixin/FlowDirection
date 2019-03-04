@@ -9,7 +9,7 @@
 
 #### Implementation pattern coordinator with RxSwift
 
-#### Setup
+### 📲 Installation
 ##### Cocoapods
 ```
 pod 'FlowDirection'
