@@ -116,46 +116,11 @@ class ViewControllerFactory: FlowFactory {
 ```swift
 import RxSwift
 import RxCocoa
-import SnapKit
 import FlowDirection
 
 class ViewController: RxFlowViewController {
 
-    let label = UILabel()
-    let button = UIButton()
-    let bag = DisposeBag()
-    
-    init() {
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = UIColor.blue
-        setup()
-    }
-    
-    func setup() {
-        view.addSubview(label)
-        label.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().offset(16)
-            make.right.equalToSuperview().offset(-16)
-            make.centerY.equalToSuperview()
-        }
-        label.text = "TEST"
-        
-        view.addSubview(button)
-        button.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().offset(16)
-            make.right.equalToSuperview().offset(-16)
-            make.centerY.equalToSuperview().offset(50)
-        }
-        button.setTitle("Transition", for: .normal)
-        button.setTitleColor(UIColor.purple, for: .normal)
+  func bind() {}
         button.rx.tap.map { (_) -> (DirectionRoute, [RxCoordinatorMiddleware]?) in
             return (DirectionRoute.present(flow: ViewControllerType.second, animated: true), .none)
         }
