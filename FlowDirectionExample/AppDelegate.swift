@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let tab = RxTabBarController(flows: [ViewControllerType.tabOne, ViewControllerType.tabTwo])
+        tab.tabBar.items?[0].image = UIImage(named: "icons8-news-24")
+        tab.tabBar.items?[1].image = UIImage(named: "icons8-pill-24")
         
         tab.itemIndexSubject.subscribe { (event) in
             
