@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// middle ware
 public protocol RxCoordinatorMiddleware {
     func perfom(_ route: DirectionRoute) -> DirectionRoute
 }

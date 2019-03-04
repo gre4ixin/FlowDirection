@@ -107,6 +107,9 @@ public class RxCoordinator: NSObject, RxDirection {
         navigationController.popToRootViewController(animated: animated)
     }
     
+    /// execute transition
+    ///
+    /// - Parameter route: <#route description#>
     private func transition(route: DirectionRoute) {
         switch route {
         case .pop(animated: let animated):
@@ -140,6 +143,12 @@ public class RxCoordinator: NSObject, RxDirection {
         }
     }
     
+    /// injection flow and coordinator to view controller
+    ///
+    /// - Parameters:
+    ///   - flow: <#flow description#>
+    ///   - viewController: <#viewController description#>
+    /// - Returns: <#return value description#>
     private func injection(flow: Flow, viewController: UIViewController) -> UIViewController {
         if let vc = viewController as? RxFlowController {
             vc.flow = flow
@@ -151,6 +160,7 @@ public class RxCoordinator: NSObject, RxDirection {
 }
 
 extension RxCoordinator {
+    /// subscribing to route subject
     private func bind() {
         router
             .subscribeOn(MainScheduler.instance)
@@ -173,16 +183,18 @@ extension RxCoordinator {
 
 public extension Reactive where Base: RxCoordinator {
     
+    /// binder for route
     var route: Binder<(DirectionRoute, [RxCoordinatorMiddleware]?)> {
         return Binder(self.base) { coordinator, flow in
             coordinator.router.accept(flow)
         }
     }
     
+    /// will navigate observable
     var willNavigate: Observable<(DirectionRoute, Flow?)> {
         return self.base.willNavigate.asObservable()
     }
-    
+    /// did navigate observable
     var didNavigate: Observable<(DirectionRoute, Flow?)> {
         return self.base.didNavigate.asObservable()
     }
